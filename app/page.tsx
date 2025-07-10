@@ -164,7 +164,7 @@ export default function Home() {
                       variant="gradient"
                       onClick={() =>
                         window.open(
-                          "https://drive.google.com/file/d/18JO1VUl-acdwbRULo2tV9Zb2hrpA4mtJ/view?pli=1",
+                          "https://drive.google.com/file/d/15GIzDP8hilgmXwC0LHG7rk21mJXAVmO3/view?usp=sharing",
                           "_blank",
                         )
                       }
