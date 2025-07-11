@@ -1,6 +1,6 @@
 🚀 Material UI Portfolio
 
-🌐 Url : https://sabarivasansm.netlify.app/
+🌐 Url : https://portfolio.vasan.tech/
 
 ✨ A stunning, responsive portfolio website built with cutting-edge technologies ✨
 
