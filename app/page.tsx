@@ -20,6 +20,7 @@ import { AnimatedSubtitle } from "@/components/animated-subtitle"
 import { EnhancedNavbar } from "@/components/enhanced-navbar"
 import { HorizontalProjects } from "@/components/horizontal-projects"
 import { AchievementsCarousel } from "@/components/achievements-carousel"
+import { ResumeModal } from "@/components/resume-modal"
 
 const socialLinks = [
   {
@@ -59,6 +60,7 @@ const socialLinks = [
 export default function Home() {
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [resumeModalOpen, setResumeModalOpen] = useState(false)
   const projectsRef = useRef<HTMLDivElement>(null)
   const { theme } = useTheme()
 
@@ -162,12 +164,7 @@ export default function Home() {
                   >
                     <AnimatedButton
                       variant="gradient"
-                      onClick={() =>
-                        window.open(
-                          "https://drive.google.com/file/d/15GIzDP8hilgmXwC0LHG7rk21mJXAVmO3/view?usp=sharing",
-                          "_blank",
-                        )
-                      }
+                      onClick={() => setResumeModalOpen(true)}
                       className="text-sm md:text-base px-4 md:px-6 py-2 md:py-3 relative overflow-hidden group"
                     >
                       <motion.div
@@ -627,6 +624,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <ResumeModal isOpen={resumeModalOpen} onClose={() => setResumeModalOpen(false)} />
     </div>
   )
 }
