@@ -798,7 +798,7 @@ const skills = [
   { name: "Solid Works", level: 55, category: "cad", icon: "📏" },
   { name: "Miro", level: 80, category: "design", icon: "🎯" },
   { name: "Canva", level: 80, category: "design", icon: "🎭" },
-  { name: "Figma", level: 70, category: "design", icon: "🖌️" },
+  
   { name: "Jenkins", level: 65, category: "devops", icon: "🔄" },
   { name: "Docker", level: 50, category: "devops", icon: "🐳" },
 ]
