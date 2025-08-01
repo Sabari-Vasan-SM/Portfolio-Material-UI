@@ -761,7 +761,7 @@ const workExperiences = [
 const interests = [
   {
     title: "Web Development",
-    description: "Creating responsive and interactive web applications using modern frameworks and technologies.",
+    description: "Passionate about crafting smooth, responsive, and interactive user interfaces using modern web technologies and frameworks.",
   },
   {
     title: "Cloud Computing",
@@ -769,7 +769,7 @@ const interests = [
   },
   {
     title: "Mechanical Engineering Integration with IT",
-    description: "Combining mechanical engineering principles with information technology for innovative solutions.",
+    description: "Combining mechanical engineering fundamentals with modern technologies like IoT and smart sensors to develop intelligent, data-driven, and efficient engineering solutions.",
   },
 ]
 
@@ -810,7 +810,7 @@ const education = [
     degree: "B.Tech - IT",
     institution: "Kongu Engineering College",
     year: "2025",
-    grade: "6.49 CGPA",
+    grade: "6.81 CGPA",
   },
   {
     degree: "Diploma - Mechanical",
