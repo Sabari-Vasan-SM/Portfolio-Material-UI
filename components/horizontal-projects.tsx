@@ -72,8 +72,7 @@ export function HorizontalProjects({ projects, activeCategory }: HorizontalProje
         <div className="h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-            style={{ scaleX: scrollXProgress }}
-            transformOrigin="left"
+            style={{ scaleX: scrollXProgress, transformOrigin: "left" }}
           />
         </div>
       </div>
