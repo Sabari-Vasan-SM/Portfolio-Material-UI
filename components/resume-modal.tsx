@@ -18,26 +18,32 @@ interface ResumeModalProps {
 export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl h-[90vh] flex flex-col">
-        <DialogHeader>
-          <DialogTitle>Sabarivasan's Resume</DialogTitle>
+      <DialogContent className="max-w-full h-[80vh] p-6 flex flex-col bg-gray-50 rounded-lg shadow-lg">
+        <DialogHeader className="mb-4">
+          <DialogTitle className="text-center text-xl font-bold text-purple-700">
+            Sabarivasan's Resume
+          </DialogTitle>
+          <p className="text-center text-sm text-gray-600">
+            Preview and download the resume below.
+          </p>
         </DialogHeader>
-        <div className="flex-grow">
+        <div className="flex-grow overflow-hidden border rounded-lg shadow-md bg-white">
           <iframe
             src="/Sabarivasan_Resume.pdf"
-            className="w-full h-full"
+            className="w-full h-full rounded-md"
             title="Resume"
           />
         </div>
-        <DialogFooter className="sm:justify-between">
-          <Button asChild>
-            <a href="/Sabarivasan_Resume.pdf" download="Sabarivasan_Resume.pdf">
+        <DialogFooter className="justify-center mt-6">
+          <Button asChild className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+            <a
+              href="/Sabarivasan_Resume.pdf"
+              download="Sabarivasan_Resume.pdf"
+              className="w-full text-center font-medium"
+            >
               Download PDF
             </a>
           </Button>
-          <DialogClose asChild>
-            <Button variant="outline">Close</Button>
-          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
