@@ -28,11 +28,20 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           </p>
         </DialogHeader>
         <div className="flex-grow overflow-hidden border rounded-lg shadow-md bg-white">
-          <iframe
-            src="/Sabarivasan_Resume.pdf"
-            className="w-full h-full rounded-md"
-            title="Resume"
-          />
+          {typeof window !== "undefined" && window.innerWidth > 768 ? (
+            <iframe
+              src="/Sabarivasan_Resume.pdf"
+              className="w-full h-full rounded-md"
+              title="Resume"
+              style={{ minHeight: "300px" }}
+            />
+          ) : (
+            <img
+              src="/Sabarivasan_Resume_Image.png" // Replace with the image path
+              alt="Resume Preview"
+              className="w-auto h-full max-w-full max-h-full rounded-md object-contain"
+            />
+          )}
         </div>
         <DialogFooter className="justify-center mt-6">
           <Button asChild className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
