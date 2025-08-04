@@ -924,14 +924,14 @@ const projects = [
       "https://blogger.googleusercontent.com/img/a/AVvXsEjeS-5K7mj-AKhlX3nqXZXUdvbgZOz9mESOPz2sGrD2-gIOQSdegdHHHqpyIdZQvJKyH1pIFStddUKFs2bTdp5vVAXl90T_hpkPMq_OLwR07Y-ML-zHqSTWi9I-8_V6_7dlicXodvSXEfbSvgbZQMYKWxSMXUcpL9QadTCE6dAy_JjCPghkOrweLHdVY8uv",
     link: "https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-",
     github: "https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-",
-    technologies: ["React", "Firebase", "Google Maps API", "Material-UI", "Socket.io"],
+    technologies: ["HTML","CSS","JavaScript","MongoDB"],
     features: [
       "User profiles and social networking",
       "Event creation and management",
       "Real-time messaging",
-      "Location-based event discovery",
+     
       "Sports activity tracking",
-      "Community building tools",
+      
     ],
     category: "Web Development",
   },
@@ -945,14 +945,11 @@ const projects = [
       "https://blogger.googleusercontent.com/img/a/AVvXsEgh4KUKLFaxZpJBLSqQ8JG6LqUsCXfBs0NGizVUpQebQ-cM6d1BfJ9RZBXd13qgIdKZjSTn6fFHMF9Ne3MZ6arnncuchPnfC-ud-AimuaOmF0-iM8fXVLYNS7CGEalpYgHVgWe_Jz9YW5wTnlLSJ9pjf1fTUXhvMWARW39caG7TmQRh3w0li0oUFR1XI6Zo",
     link: "https://github.com/Sabari-Vasan-SM/Gear-design-Calculator-with-live-Visualization",
     github: "https://github.com/Sabari-Vasan-SM/Gear-design-Calculator-with-live-Visualization",
-    technologies: ["React", "Three.js", "WebGL", "Mathematical Libraries", "CAD Export"],
+    technologies: ["React","Node.js"],
     features: [
       "Real-time gear calculations",
-      "3D visualization and animation",
-      "Stress analysis and simulation",
-      "Material property database",
-      "CAD file export",
-      "Engineering documentation generation",
+      "2D visualization and animation",
+      
     ],
     category: "Mech & Web",
   },
@@ -965,7 +962,7 @@ const projects = [
       "https://blogger.googleusercontent.com/img/a/AVvXsEjtwp3qDUzFmk7FxCk22es1XudU5gXTfo83pE-roIOFeOAkaNpPwGxXcK8bj3CCDuxu_VUJAXV61SPxIeqD2wnHgWNapuVDT1Oktqv8hYZYO6--zgmpOG1i_W2SD7rPVAFh5DEgVeJOzVrL1i3hDPznz-S-C0d9x-015t73uoHN3_jPXAQMhDgCzfClEYc6",
     link: "https://admissionmanagement.netlify.app/",
     github: "https://github.com/Sabari-Vasan-SM/Admisssion-management",
-    technologies: ["React", "Node.js", "PostgreSQL", "Express", "Payment Gateway", "PDF Generation"],
+    technologies: ["React", "Node.js",  "Express", "Payment Gateway", "PDF Generation"],
     features: [
       "Online application forms",
       "Document upload and verification",
