@@ -145,7 +145,7 @@ export default function Home() {
                 </motion.h1>
                 <AnimatedSubtitle
                   text="Mechanical Engineer | Web Developer | Tech Aficionado"
-                  className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-xs sm:max-w-md mx-auto md:mx-0 leading-relaxed"
+                  className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-md mx-auto md:mx-0 leading-relaxed"
                   delay={2.5}
                 />
                 <motion.div
