@@ -36,14 +36,14 @@ export function WorkExperienceTimeline({ experiences }: WorkExperienceTimelinePr
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
-                {/* Animated background gradient */}
+                {/* Animated  background  gradient */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0"
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 />
 
-                {/* Floating particles effect */}
+                {/* Floating  particles  effect */}
                 <motion.div
                   className="absolute top-2 right-2 w-2 h-2 bg-purple-400 rounded-full opacity-0"
                   whileHover={{
