@@ -758,17 +758,14 @@ const workExperiences = [
 
 const interests = [
   {
-    title: "Web Development",
+    title: "Web Development  (MEAN Stack)",
     description: "Passionate about crafting smooth, responsive, and interactive user interfaces using modern web technologies and frameworks.",
   },
   {
     title: "Cloud Computing",
     description: "Leveraging cloud platforms to build scalable and efficient solutions for various applications.",
   },
-  {
-    title: "Mechanical Engineering Integration with IT",
-    description: "Combining mechanical engineering fundamentals with modern technologies like IoT and smart sensors to develop intelligent, data-driven, and efficient engineering solutions.",
-  },
+ 
 ]
 
 const skillCategories = [
@@ -782,26 +779,35 @@ const skillCategories = [
 ]
 
 const skills = [
-  { name: "Python", level: 60, category: "languages", icon: "🐍" },
-  { name: "JavaScript", level: 70, category: "languages", icon: "🟨" },
-  { name: "HTML", level: 90, category: "frontend", icon: "🌐" },
-  { name: "CSS", level: 85, category: "frontend", icon: "🎨" },
-  { name: "JS", level: 80, category: "frontend", icon: "📜" },
-  { name: "TypeScript", level: 60, category: "frontend", icon: "🔷" },
-  { name: "React JS", level: 85, category: "frontend", icon: "⚛️" },
-  { name: "Node JS", level: 50, category: "backend", icon: "🟢" },
-  { name: "SQL", level: 50, category: "database", icon: "🗃️" },
-  { name: "MongoDB", level: 60, category: "database", icon: "🍃" },
-  { name: "Supabase", level: 80, category: "database", icon: "⚡" },
-  { name: "Auto CAD", level: 70, category: "cad", icon: "📐" },
-  { name: "Pro-E", level: 55, category: "cad", icon: "🔧" },
-  { name: "Solid Works", level: 55, category: "cad", icon: "📏" },
-  { name: "Miro", level: 80, category: "design", icon: "🎯" },
-  { name: "Canva", level: 80, category: "design", icon: "🎭" },
-  
-  { name: "Jenkins", level: 65, category: "devops", icon: "🔄" },
-  { name: "Docker", level: 50, category: "devops", icon: "🐳" },
-]
+  { name: "Python", level: 60, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "JavaScript", level: 70, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+
+  { name: "HTML", level: 90, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS", level: 85, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "JS", level: 80, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "TypeScript", level: 60, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "React JS", level: 85, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next JS", level: 65, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+
+  { name: "Node JS", level: 50, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express JS", level: 50, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+
+  { name: "SQL", level: 50, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "MongoDB", level: 60, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Supabase", level: 80, category: "database", icon: "https://seeklogo.com/images/S/supabase-logo-DCC676FFE2-seeklogo.com.png" },
+
+  { name: "Auto CAD", level: 70, category: "cad", icon: "https://img.icons8.com/color/452/autocad.png" },
+  { name: "Pro-E", level: 55, category: "cad", icon: "https://img.icons8.com/color/452/autodesk.png" },
+  { name: "Solid Works", level: 55, category: "cad", icon: "https://img.icons8.com/color/452/solidworks.png" },
+
+  { name: "Miro", level: 80, category: "design", icon: "https://cdn.worldvectorlogo.com/logos/miro-2.svg" },
+  { name: "Canva", level: 80, category: "design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
+
+  { name: "Jenkins", level: 65, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+  { name: "Docker", level: 50, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "Kubernetes", level: 55, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+];
+
 
 const education = [
   {

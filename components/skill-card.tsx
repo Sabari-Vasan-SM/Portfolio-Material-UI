@@ -23,7 +23,17 @@ export function SkillCard({ skill, index }: SkillCardProps) {
         <CardContent className="p-4 md:p-6">
           <div className="flex items-center justify-between mb-3 md:mb-4">
             <div className="flex items-center gap-2 md:gap-3">
-              <div className="text-lg md:text-2xl">{skill.icon}</div>
+              <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
+                <img 
+                  src={skill.icon} 
+                  alt={`${skill.name} icon`}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    // Fallback to a generic icon if image fails to load
+                    e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M8 12h8'/%3E%3Cpath d='M12 8v8'/%3E%3C/svg%3E"
+                  }}
+                />
+              </div>
               <h3 className="font-medium text-sm md:text-base dark:text-white text-gray-900">{skill.name}</h3>
             </div>
           </div>
