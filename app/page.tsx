@@ -691,9 +691,9 @@ function FlipCard() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <span className="block sm:inline">MechanicalPrecision,</span>{" "}
-                <span className="block sm:inline">ITEfficiency,</span>{" "}
-                <span className="block sm:inline">Future-ReadySolutions</span>
+                <span className="block sm:inline">Building Smarter IT Solutions for a Future-Ready World</span>{" "}
+                <span className="block sm:inline"></span>{" "}
+                <span className="block sm:inline"></span>
               </motion.h3>
             </CardContent>
           </Card>
@@ -707,11 +707,9 @@ function FlipCard() {
                 animate={{ opacity: isFlipped ? 1 : 0 }}
                 transition={{ delay: 0.3, duration: 0.3 }}
               >
-                A motivated and detail-oriented individual with a background in{" "}
-                <span className="font-semibold text-purple-600 dark:text-purple-400">Mechanical Engineering</span> and
-                current studies in{" "}
-                <span className="font-semibold text-blue-600 dark:text-blue-400">Information Technology</span>, aiming
-                to apply technical and problem-solving skills in{" "}
+                A motivated and detail-oriented individual pursuing{" "}
+                <span className="font-semibold text-blue-600 dark:text-blue-400">Information Technology</span>, passionate
+                about applying technical expertise and problem-solving skills to craft innovative{" "}
                 <span className="font-semibold text-green-600 dark:text-green-400">
                   web development and IT solutions
                 </span>
