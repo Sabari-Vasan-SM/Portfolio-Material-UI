@@ -836,26 +836,57 @@ const education = [
 
 const projects = [
   {
-    title: "GCrafter",
+    title: "Bike Buddy",
     description:
-      "A web-based platform for CNC machining and 3D printing with real-time G-code visualization and error detection.",
+      "A comprehensive bike service management platform that connects customers with service providers, enabling easy booking, tracking, and management of bike services.",
     fullDescription:
-      "GCrafter is a comprehensive web-based platform designed to assist users in the field of CNC machining and 3D printing. The platform provides real-time visual feedback when running G-codes, helping to identify potential issues before actual execution on physical machinery. It features an intuitive interface for code editing, simulation capabilities, and detailed error reporting to ensure optimal manufacturing outcomes.",
+      " A comprehensive bike service management platform that connects customers with service providers, enabling easy booking, tracking, and management of bike services.",
     image:
-      "https://blogger.googleusercontent.com/img/a/AVvXsEhfny_y7UQmo5Uea12tH0ltvEcwiaow1ef_TfXbWtCMGJwO42wvGl6pr4IPd26YPBiiGLa12NtmS0ZC0Owm8DHtyRSMrmVBCZCgKPuFxlx1mktEWPv7-2O5vfcrVzHV-0T4Ot0bgLb8l-ER2Vg42CCZ9089vaHG9HXVYcsQf3K2cznaHsdJhY656EFDpJbo",
-    link: "https://g-crafter.vercel.app/",
-    github: "https://github.com/Sabari-Vasan-SM/GCrafter",
-    technologies: ["React", "Node.js"],
+      "https://blogger.googleusercontent.com/img/a/AVvXsEiEFN58SIYnhmUikihfqiHk0YXN7WIhMLDG8YqT717374dasIArE5vTkxuDNnNa9kbNmUBDxVrg2QwAUTRd28NKw6TFLlBp1rUCpb13j6CxHZTdDYYQIEyXscHWzNhSYj6YChBqeQm3jcPxFr2USeubFDWmky9iOIRcdpZmURXnd_NWrdRb5LljU92tLRVq",
+    link: "https://cartrabbit-alpha.vercel.app/",
+    github: "https://github.com/Sabari-Vasan-SM/Bike-Buddy",
+    technologies: ["React", "Node.js","MongoDB Atlas","Express","Nodemailer"],
     features: [
-      "Real-time G-code visualization",
-      "Error detection and reporting",
-      "2D simulation environment",
-      "Code editing with syntax highlighting",
-      "Export capabilities for multiple formats",
-      "User-friendly interface design",
+      "Customer booking flow (select service, date/time, pickup or drop-off option)",
+  "Service provider onboarding and profile management",
+  "Real-time booking status & progress tracking",
+  "Technician assignment and schedule management",
+  "In-app messaging between customer and provider",
+  "Push & email notifications (booking confirmations, reminders, status updates)",
     ],
-    category: "Mech & Web",
+    category: "Web",
   },
+  {
+  "title": "Password Saver",
+  "description":
+    "A secure and user-friendly React Native application for storing and managing all your passwords with ease.",
+  "fullDescription":
+    "Password Saver is a mobile app built with React Native and Expo, designed to simplify password management while ensuring strong security. It provides secure authentication, PIN protection, and user-specific data isolation. Users can add, manage, and search their saved credentials, copy passwords to the clipboard with a single tap, and delete entries when no longer needed. With a modern UI/UX built using React Navigation, AsyncStorage, and Expo’s ecosystem, the app delivers a smooth, minimal, and reliable experience for both Android and iOS.",
+  "image":
+    "https://blogger.googleusercontent.com/img/a/AVvXsEiH79fRiTQuxfmc_wJKqPuP1sIVE8LqaxEzd1RU-_z724BilPItz0eU2EUCVUWmFwzLkACnT4lfPCYYypppIi3yCCQAUqbZqqjy7F_N_WIptzft6dm91zN9HjGrEC0MF6mEubHKzRkqiebd1Haavh08Z8Yli-7tqt0BSf3pTmsdRldNob7JKZ-7w9OdEBay",
+  "link": "https://github.com/Sabari-Vasan-SM/PasswordSaver",
+  "github": "https://github.com/Sabari-Vasan-SM/PasswordSaver",
+  "technologies": [
+    "React Native",
+    "Expo",
+    "React Navigation",
+    "AsyncStorage",
+    "expo-clipboard",
+    "@expo/vector-icons"
+  ],
+  "features": [
+    "Secure user authentication (sign-up & login)",
+    "PIN-based quick access with added security",
+    "User-specific data isolation (auto wipe on logout)",
+    "Add, view, search, and manage saved credentials",
+    "One-tap password copy to clipboard",
+    "Delete individual or all saved passwords",
+    "Modern minimal UI/UX with smooth navigation",
+    "Cross-platform support (Android & iOS)"
+  ],
+  "category": "Mobile App"
+},
+
   {
     title: "Air-Quality-Monitor-With-NODE-MCU",
     description:
