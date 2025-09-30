@@ -779,7 +779,8 @@ const skillCategories = [
   { value: "cad", label: "CAD/CAM Tools" },
   { value: "design", label: "Design Tools" },
   { value: "devops", label: "DevOps" },
-]
+  { value: "cloud", label: "Cloud" }, // ✅ Added Cloud
+];
 
 const skills = [
   { name: "Python", level: 60, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
@@ -809,6 +810,9 @@ const skills = [
   { name: "Jenkins", level: 65, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
   { name: "Docker", level: 50, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
   { name: "Kubernetes", level: 55, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+
+  // ✅ New Cloud Skill
+  { name: "AWS", level: 70, category: "cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
 ];
 
 
