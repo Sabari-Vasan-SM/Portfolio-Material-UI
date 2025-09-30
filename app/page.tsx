@@ -763,6 +763,11 @@ const interests = [
     title: "Cloud Computing",
     description: "Leveraging cloud platforms to build scalable and efficient solutions for various applications.",
   },
+  {
+  title: "DevOps",
+  description: "Implementing CI/CD pipelines, automation, and monitoring to ensure seamless development and deployment workflows.",
+}
+
  
 ]
 
