@@ -812,7 +812,7 @@ const skills = [
   { name: "Kubernetes", level: 55, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
 
   // ✅ New Cloud Skill
-  { name: "AWS", level: 70, category: "cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+  { name: "Amazon web services", level: 70, category: "cloud", icon: "https://www.apono.io/wp-content/uploads/2023/08/1_b_al7C5p26tbZG4sy-CWqw-3.png" },
 ];
 
 
