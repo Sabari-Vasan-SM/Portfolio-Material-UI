@@ -73,7 +73,7 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
     }
     autoplayRef.current = window.setInterval(() => {
       setIndex((i) => (i + 1) % count)
-    }, 1000)
+    }, 2000)
 
     return () => {
       if (autoplayRef.current) {
@@ -118,7 +118,12 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
             <div className="relative rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-900">
               {/* Full image banner */}
               <div className="w-full h-64 md:h-72 bg-gray-100 dark:bg-gray-800">
-                <img src={items[index]?.image} alt={items[index]?.title} className="w-full h-full object-contain" />
+                <img
+                  src={items[index]?.image}
+                  alt={items[index]?.title}
+                  className="w-full h-full object-cover cursor-pointer"
+                  onClick={() => { setAutoplay(false); setSelected(items[index]); setOpen(true) }}
+                />
               </div>
 
               {/* Meta */}
@@ -128,19 +133,9 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
                     <h3 className="text-lg font-semibold dark:text-white">{items[index]?.title}</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{items[index]?.issuer} · {items[index]?.year}</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <button onClick={() => { setAutoplay(false); prev() }} className="p-2 rounded-full bg-white/80 dark:bg-gray-800 shadow-md border">
-                      <Arrow dir="left" />
-                    </button>
-                    <button onClick={() => { setAutoplay(false); next() }} className="p-2 rounded-full bg-white/80 dark:bg-gray-800 shadow-md border">
-                      <Arrow dir="right" />
-                    </button>
-                  </div>
                 </div>
                 <p className="mt-3 text-sm text-gray-700 dark:text-gray-300">{items[index]?.description}</p>
-                <div className="mt-4 flex justify-end">
-                  <button onClick={() => { setAutoplay(false); setSelected(items[index]); setOpen(true) }} className="px-4 py-2 bg-purple-600 text-white rounded-md shadow">View Certificate</button>
-                </div>
+                {/* removed in-card View button — image is clickable to open dialog */}
               </div>
             </div>
           </div>
@@ -148,7 +143,12 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
           {/* Thumbnails */}
           <div className="mt-4 flex items-center gap-3 overflow-x-auto px-2 py-1">
             {items.map((it, i) => (
-              <button key={it.id} onClick={() => { setAutoplay(false); setIndex(i) }} className={`w-20 h-12 rounded-md overflow-hidden border ${i === index ? 'ring-2 ring-purple-300' : 'border-gray-200 dark:border-gray-700'}`}>
+              <button
+                key={it.id}
+                onClick={() => { setAutoplay(false); setIndex(i) }}
+                className={`w-20 h-12 rounded-md overflow-hidden border transition-shadow ${i === index ? 'ring-2 ring-purple-300 shadow-md' : 'border-gray-200 dark:border-gray-700'}`}
+                aria-label={`Go to ${it.title}`}
+              >
                 <img src={it.image} alt={it.title} className="w-full h-full object-cover" />
               </button>
             ))}
@@ -184,8 +184,8 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
           </DialogHeader>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
             {selected && (
-              <div className="col-span-1 w-full rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800 shadow-sm">
-                <img src={selected.image} alt={selected.title} className="w-full h-56 object-cover" />
+              <div className="col-span-1 w-full rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800 shadow-sm flex items-center justify-center">
+                <img src={selected.image} alt={selected.title} className="w-full h-[70vh] object-contain" />
               </div>
             )}
             <div className="col-span-2">
@@ -193,7 +193,6 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
                 <p className="text-sm text-muted-foreground">{selected?.issuer} · {selected?.year}</p>
                 <p className="mt-4 text-sm text-gray-700 dark:text-gray-200 leading-relaxed">{selected?.description}</p>
                 <div className="mt-6 flex gap-3">
-                  <a href="#" onClick={(e)=>e.preventDefault()} className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-md shadow">View Certificate</a>
                   <DialogClose className="inline-flex items-center px-4 py-2 border rounded-md">Close</DialogClose>
                 </div>
               </DialogDescription>
