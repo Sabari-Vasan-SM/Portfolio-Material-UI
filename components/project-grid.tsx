@@ -65,14 +65,14 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
     <>
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        variants={containerVariants}
+        variants={containerVariants as any}
         initial="hidden"
         animate="visible"
       >
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            variants={itemVariants}
+            variants={itemVariants as any}
             whileHover={{ y: -8, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="cursor-pointer"

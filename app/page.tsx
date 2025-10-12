@@ -21,6 +21,7 @@ import { EnhancedNavbar } from "@/components/enhanced-navbar"
 import { HorizontalProjects } from "@/components/horizontal-projects"
 import { AchievementsCarousel } from "@/components/achievements-carousel"
 import { ResumeModal } from "@/components/resume-modal"
+import CertificationsCarousel from "@/components/certifications-carousel"
 
 const socialLinks = [
   {
@@ -252,6 +253,8 @@ export default function Home() {
           </div>
         </section>
 
+       
+
         {/* About Section */}
         <section id="about" className="py-12 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
           <div className="container px-4 md:px-6">
@@ -338,6 +341,29 @@ export default function Home() {
           </div>
         </section>
 
+ {/* Certifications Section */}
+        <section id="certifications" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+          <div className="container px-4 md:px-6">
+            <AnimatedSection animation="slide-up" className="text-center mb-12">
+              <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
+                <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
+                <span className="dark:text-gray-300 text-gray-700">Credentials</span>
+              </div>
+              <AnimatedHeading className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+                Certifications
+              </AnimatedHeading>
+              <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mt-4">
+                Selected certifications that demonstrate professional growth and expertise.
+              </p>
+            </AnimatedSection>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+              <CertificationsCarousel
+                items={certificationsData}
+              />
+            </motion.div>
+          </div>
+        </section>
         {/* Education Section */}
         <section id="education" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
           <div className="container px-4 md:px-6">
@@ -781,6 +807,41 @@ const skillCategories = [
   { value: "devops", label: "DevOps" },
   { value: "cloud", label: "Cloud" }, // ✅ Added Cloud
 ];
+
+const certificationsData = [
+  {
+    id: 'cert-1',
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    year: '2024',
+    description: 'Fundamental cloud computing concepts, AWS services, security, architecture, and pricing.',
+    image: '/placeholder-logo.png',
+  },
+  {
+    id: 'cert-2',
+    title: 'Google Data Analytics Professional',
+    issuer: 'Google',
+    year: '2023',
+    description: 'Practical data analysis, visualization, and data-driven decision making.',
+    image: '/placeholder.jpg',
+  },
+  {
+    id: 'cert-3',
+    title: 'Frontend Web Developer',
+    issuer: 'freeCodeCamp',
+    year: '2022',
+    description: 'Hands-on experience with HTML, CSS, JavaScript and modern front-end frameworks.',
+    image: '/placeholder-user.jpg',
+  },
+  {
+    id: 'cert-4',
+    title: 'Machine Learning Foundations',
+    issuer: 'Coursera',
+    year: '2024',
+    description: 'Core machine learning concepts including supervised learning and model evaluation.',
+    image: '/placeholder.svg',
+  },
+]
 
 const skills = [
   { name: "Python", level: 60, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },

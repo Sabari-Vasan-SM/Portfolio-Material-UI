@@ -43,7 +43,7 @@ export function AnimatedSubtitle({ text, className = "", delay = 0 }: AnimatedSu
   return (
     <motion.p
       className={`${className} whitespace-nowrap overflow-x-auto scrollbar-hide cursor-pointer select-none`}
-      variants={containerVariants}
+      variants={containerVariants as any}
       initial="hidden"
       animate="visible"
       whileHover={{
@@ -58,7 +58,7 @@ export function AnimatedSubtitle({ text, className = "", delay = 0 }: AnimatedSu
       {text.split("").map((char, index) => (
         <motion.span
           key={index}
-          variants={charVariants}
+          variants={charVariants as any}
           className="inline-block flex-shrink-0 font-semibold italic"
           whileHover={{
             scale: 1.15,

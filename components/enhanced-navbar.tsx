@@ -67,6 +67,7 @@ export function EnhancedNavbar({ scrollToSection }: EnhancedNavbarProps) {
     { id: "home", label: "Home", icon: Home },
     { id: "about", label: "About", icon: User },
     { id: "skills", label: "Skills", icon: Code },
+    { id: "certifications", label: "Certifications", icon: Trophy },
     { id: "education", label: "Education", icon: GraduationCap },
     { id: "experience", label: "Experience", icon: Briefcase },
     { id: "projects", label: "Projects", icon: FolderOpen },
