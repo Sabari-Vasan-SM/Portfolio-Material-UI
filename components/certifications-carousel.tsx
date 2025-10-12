@@ -73,7 +73,7 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
     }
     autoplayRef.current = window.setInterval(() => {
       setIndex((i) => (i + 1) % count)
-    }, 2000)
+    }, 1000)
 
     return () => {
       if (autoplayRef.current) {
@@ -113,71 +113,46 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
           <Arrow dir="left" />
         </button>
 
-        <div className="overflow-hidden">
-          <motion.div
-            ref={listRef}
-            drag="x"
-            onPointerDown={onDragStart}
-            onPointerUp={onDragEnd}
-            dragConstraints={{ left: -9999, right: 9999 }}
-            dragElastic={0.12}
-            animate={{ x: -index * cardWidth }}
-            transition={{ type: "spring", stiffness: 210, damping: 28 }}
-            className="flex items-stretch gap-8 px-4 md:px-6 touch-pan-x"
-            onMouseEnter={() => setAutoplay(false)}
-          >
-            <div ref={innerRef} className="flex gap-8 py-4 md:py-6">
-              {items.map((item, i) => {
-                const active = i === index
-                return (
-                  <motion.div
-                    key={item.id}
-                    className={`cert-card min-w-[300px] md:min-w-[360px] lg:min-w-[420px] ${active ? 'z-40' : 'z-10'}`}
-                    initial={{ opacity: 0.9 }}
-                    animate={{ opacity: active ? 1 : 0.55, scale: active ? 1 : 0.96, y: active ? -4 : 0 }}
-                    transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-                    style={{ pointerEvents: 'auto' }}
-                    onClick={() => {
-                      setAutoplay(false)
-                      setSelected(item)
-                      setOpen(true)
-                    }}
-                  >
-                    <div className={`rounded-2xl p-1 bg-gradient-to-br ${active ? 'from-purple-600 to-pink-500' : 'from-gray-100 to-gray-50'} shadow-md`}> 
-                      <div className={`bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl h-full flex flex-col gap-4 transform-gpu transition-all duration-200 ${active ? 'ring-2 ring-purple-200 dark:ring-pink-900' : ''}`}>
-                        <div className="flex items-center gap-4">
-                          <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-gray-50 dark:bg-gray-800 shadow-sm">
-                            <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-lg dark:text-white">{item.title}</h4>
-                            <div className="text-sm text-gray-500 dark:text-gray-400">{item.issuer} · {item.year}</div>
-                          </div>
-                        </div>
-                        <p className="text-sm text-gray-600 dark:text-gray-300 flex-1 line-clamp-3">{item.description}</p>
-                        <div className="flex items-center justify-between pt-2">
-                          <div className="text-xs text-gray-400">Certificate ID: {item.id}</div>
-                          <div className="flex items-center gap-3">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                setAutoplay(false)
-                                setSelected(item)
-                                setOpen(true)
-                              }}
-                              className="text-sm px-3 py-1 rounded-md bg-purple-600 text-white hover:bg-purple-700 shadow-sm"
-                            >
-                              View
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )
-              })}
+        <div className="w-full flex flex-col items-center">
+          <div className="w-full max-w-3xl">
+            <div className="relative rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-900">
+              {/* Full image banner */}
+              <div className="w-full h-64 md:h-72 bg-gray-100 dark:bg-gray-800">
+                <img src={items[index]?.image} alt={items[index]?.title} className="w-full h-full object-contain" />
+              </div>
+
+              {/* Meta */}
+              <div className="p-5 md:p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-semibold dark:text-white">{items[index]?.title}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{items[index]?.issuer} · {items[index]?.year}</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button onClick={() => { setAutoplay(false); prev() }} className="p-2 rounded-full bg-white/80 dark:bg-gray-800 shadow-md border">
+                      <Arrow dir="left" />
+                    </button>
+                    <button onClick={() => { setAutoplay(false); next() }} className="p-2 rounded-full bg-white/80 dark:bg-gray-800 shadow-md border">
+                      <Arrow dir="right" />
+                    </button>
+                  </div>
+                </div>
+                <p className="mt-3 text-sm text-gray-700 dark:text-gray-300">{items[index]?.description}</p>
+                <div className="mt-4 flex justify-end">
+                  <button onClick={() => { setAutoplay(false); setSelected(items[index]); setOpen(true) }} className="px-4 py-2 bg-purple-600 text-white rounded-md shadow">View Certificate</button>
+                </div>
+              </div>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Thumbnails */}
+          <div className="mt-4 flex items-center gap-3 overflow-x-auto px-2 py-1">
+            {items.map((it, i) => (
+              <button key={it.id} onClick={() => { setAutoplay(false); setIndex(i) }} className={`w-20 h-12 rounded-md overflow-hidden border ${i === index ? 'ring-2 ring-purple-300' : 'border-gray-200 dark:border-gray-700'}`}>
+                <img src={it.image} alt={it.title} className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
         </div>
 
         <button
