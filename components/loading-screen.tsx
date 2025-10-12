@@ -260,7 +260,7 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
     const timer = setTimeout(() => {
       setIsVisible(false);
       onComplete(); // Notify parent when loading is complete
-    }, 3000); // Display for 3 seconds
+  }, 1500); // Display for 1.5 seconds
 
     return () => clearTimeout(timer);
   }, [onComplete]);

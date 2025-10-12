@@ -35,8 +35,8 @@ export function EnhancedNavbar({ scrollToSection }: EnhancedNavbarProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
 
-      // Get all sections
-      const sections = ["home", "about", "skills", "education", "experience", "projects", "achievements", "contact"]
+  // Get all sections (include certifications)
+  const sections = ["home", "about", "skills", "certifications", "education", "experience", "projects", "achievements", "contact"]
       const scrollPosition = window.scrollY + 100 // Offset for better detection
 
       // Find the current section
