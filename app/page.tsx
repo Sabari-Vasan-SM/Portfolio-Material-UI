@@ -979,15 +979,15 @@ const projects = [
     category: "IoT & Web",
   },
   {
-    title: "Billing and Stock Management System",
-    description: "An integrated system for managing inventory, sales, billing, and stock tracking for businesses.",
+    title: "Billventory",
+    description: "An all-in-one digital solution that streamlines the retail experience by integrating inventory control, billing, and sales management into a single platform.",
     fullDescription:
-      "A comprehensive business management system that handles inventory management, sales processing, billing, and stock tracking. The system provides real-time inventory updates, automated billing, sales analytics, and multi-location support for growing businesses.",
+      "An all-in-one digital solution that streamlines the retail experience by integrating inventory control, billing, and sales management into a single platform.",
     image:
-      "https://blogger.googleusercontent.com/img/a/AVvXsEhS8LnsZ0pABQFzh5caT1hZ_y-I9uu2dkR8ee4d3hOZ3DK7eBtbE-6rN_NdNMC7xcvhAFjWhfUwG5N4ydt4FV6QDXWabrSziwVK6vO64lJTAEwBulBdGXOryF_mZOiuz2Q49b0-aDKu-gs8FBOG7gvBJKuH190UdZtOi_EgBJVIWHyvwTavx2O8E_lhNNAM",
-    link: "https://velavanstores1.netlify.app/",
-    github: "https://github.com/Sabari-Vasan-SM/Billing-and-Stock-Management-11",
-    technologies: ["React", "Node.js", "MySQL", "Express", "Chart.js", "PDF Generation"],
+      "https://blogger.googleusercontent.com/img/a/AVvXsEhKRda2HFZa7Yrx4eh5zykeFT8lItcpot7XfApvo5VHgdHjKtUULEI3FqvHx8nIAHYfKDC_z5Z2jDbLjGsTIdjOXnqlYmffrj7_BcXRE2BarBQ0CpvDD0jDjVwaU-rxfZFuJA17Rr8DZtKzWs1EJLksHJX70-i2pJfseRS3B8wKF-y41PHf84bZcRzjmA33",
+    link: "https://billventory.vasan.tech/",
+    github: "https://github.com/Sabari-Vasan-SM/Billventory",
+    technologies: ["React", "Node.js", "SupaBase","PDF Generation"],
     features: [
       "Real-time inventory tracking",
       "Automated billing and invoicing",
