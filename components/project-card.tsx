@@ -42,6 +42,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   size="sm"
                   variant="outline"
                   className="bg-white/20 text-white border-white/40 hover:bg-white/30"
+                  onClick={() => window.open(project.link, "_blank")}
                 >
                   View Project
                   <ExternalLink className="ml-2 size-4" />

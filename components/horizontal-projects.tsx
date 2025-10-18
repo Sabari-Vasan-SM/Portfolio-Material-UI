@@ -153,7 +153,7 @@ export function HorizontalProjects({ projects, activeCategory }: HorizontalProje
                     transition={{ duration: 0.3 }}
                   />
 
-                  {/* Action Buttons - Updated to show both View and GitHub */}
+                  {/* Action Buttons - Updated to show both View and GitHub (project-specific) */}
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -173,15 +173,17 @@ export function HorizontalProjects({ projects, activeCategory }: HorizontalProje
                         <ExternalLink className="size-3 md:size-4" />
                         <span>View</span>
                       </motion.button>
-                      <motion.button
-                        className="px-3 md:px-4 py-2 md:py-2.5 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-colors flex items-center gap-2 font-medium text-xs md:text-sm"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => window.open("https://github.com/Sabari-Vasan-SM?tab=repositories", "_blank")}
-                      >
-                        <Github className="size-3 md:size-4" />
-                        <span>GitHub</span>
-                      </motion.button>
+                      {project.github && (
+                        <motion.button
+                          className="px-3 md:px-4 py-2 md:py-2.5 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-colors flex items-center gap-2 font-medium text-xs md:text-sm"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => window.open(project.github as string, "_blank")}
+                        >
+                          <Github className="size-3 md:size-4" />
+                          <span>GitHub</span>
+                        </motion.button>
+                      )}
                     </div>
                   </motion.div>
 
@@ -231,7 +233,7 @@ export function HorizontalProjects({ projects, activeCategory }: HorizontalProje
                     )}
                   </div>
 
-                  {/* Action Buttons - Updated bottom section */}
+                  {/* Action Buttons - Updated bottom section with project-specific links */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -248,16 +250,18 @@ export function HorizontalProjects({ projects, activeCategory }: HorizontalProje
                         <ExternalLink className="size-3 md:size-4" />
                       </motion.div>
                     </AnimatedButton>
-                    <AnimatedButton
-                      variant="outline"
-                      className="flex-1 border-purple-200 dark:border-purple-800 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-xs md:text-sm py-2 md:py-2.5"
-                      onClick={() => window.open("https://github.com/Sabari-Vasan-SM?tab=repositories", "_blank")}
-                    >
-                      <span>GitHub</span>
-                      <motion.div className="ml-1" whileHover={{ x: 3 }}>
-                        <ChevronRight className="size-3 md:size-4" />
-                      </motion.div>
-                    </AnimatedButton>
+                    {project.github && (
+                      <AnimatedButton
+                        variant="outline"
+                        className="flex-1 border-purple-200 dark:border-purple-800 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-xs md:text-sm py-2 md:py-2.5"
+                        onClick={() => window.open(project.github as string, "_blank")}
+                      >
+                        <span>GitHub</span>
+                        <motion.div className="ml-1" whileHover={{ x: 3 }}>
+                          <ChevronRight className="size-3 md:size-4" />
+                        </motion.div>
+                      </AnimatedButton>
+                    )}
                   </motion.div>
                 </CardContent>
               </motion.div>

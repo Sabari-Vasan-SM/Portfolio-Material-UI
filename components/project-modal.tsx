@@ -114,12 +114,19 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   </div>
 
                   <div className="flex gap-4 pt-4">
-                    <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 text-white rounded-full flex-1">
+                    <Button
+                      className="bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 text-white rounded-full flex-1"
+                      onClick={() => window.open(project.link, "_blank")}
+                    >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       View Live Project
                     </Button>
                     {project.github && (
-                      <Button variant="outline" className="rounded-full">
+                      <Button
+                        variant="outline"
+                        className="rounded-full"
+                        onClick={() => window.open(project.github as string, "_blank")}
+                      >
                         <Github className="mr-2 h-4 w-4" />
                         GitHub
                       </Button>
