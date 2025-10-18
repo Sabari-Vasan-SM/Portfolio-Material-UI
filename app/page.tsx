@@ -914,7 +914,7 @@ const projects = [
     image:
       "https://blogger.googleusercontent.com/img/a/AVvXsEiEFN58SIYnhmUikihfqiHk0YXN7WIhMLDG8YqT717374dasIArE5vTkxuDNnNa9kbNmUBDxVrg2QwAUTRd28NKw6TFLlBp1rUCpb13j6CxHZTdDYYQIEyXscHWzNhSYj6YChBqeQm3jcPxFr2USeubFDWmky9iOIRcdpZmURXnd_NWrdRb5LljU92tLRVq",
     link: "https://cartrabbit-alpha.vercel.app/",
-    github: "https://github.com/Sabari-Vasan-SM/Bike-Buddy",
+    github: "https://github.com/Sabari-Vasan-SM/Bike-Buddy.git",
     technologies: ["React", "Node.js","MongoDB Atlas","Express","Nodemailer"],
     features: [
       "Customer booking flow (select service, date/time, pickup or drop-off option)",
@@ -935,7 +935,7 @@ const projects = [
   "image":
     "https://blogger.googleusercontent.com/img/a/AVvXsEiH79fRiTQuxfmc_wJKqPuP1sIVE8LqaxEzd1RU-_z724BilPItz0eU2EUCVUWmFwzLkACnT4lfPCYYypppIi3yCCQAUqbZqqjy7F_N_WIptzft6dm91zN9HjGrEC0MF6mEubHKzRkqiebd1Haavh08Z8Yli-7tqt0BSf3pTmsdRldNob7JKZ-7w9OdEBay",
   "link": "https://github.com/Sabari-Vasan-SM/PasswordSaver",
-  "github": "https://github.com/Sabari-Vasan-SM/PasswordSaver",
+  "github": "https://github.com/Sabari-Vasan-SM/PasswordSaver.git",
   "technologies": [
     "React Native",
     "Expo",
@@ -966,7 +966,7 @@ const projects = [
     image:
       "https://blogger.googleusercontent.com/img/a/AVvXsEjpTHAvwiWZJqFFsG1sh3RvTkswRq3a7vE0KO_9UhuallyZzdZahPiu50EEvhmqhHuJcRVG_ma2M3AC8I73BFgtaAFAvrqof6X-YnVxXqE-UstKUSH25rcDT9YDgxA4j9sJ3_U9vhIij5DSxc8hNhzkw4HgrAwSMFOH5t-H9JVcIqmsTMUsuKit1IsPob1x",
     link: "https://airqualitymonitor1.netlify.app/",
-    github: "https://github.com/Sabari-Vasan-SM/Air-Quality-Monitor-With-NODE-MCU",
+    github: "https://github.com/Sabari-Vasan-SM/Air-Quality-Monitor-With-NODE-MCU.git",
     technologies: ["ESP32", "MQ-6", "MQ-135", "DHT11", "React", "TailwindCSS", "Twilio", "ThingSpeak"],
     features: [
       "Real-time sensor data updates",
@@ -986,7 +986,7 @@ const projects = [
     image:
       "https://blogger.googleusercontent.com/img/a/AVvXsEhKRda2HFZa7Yrx4eh5zykeFT8lItcpot7XfApvo5VHgdHjKtUULEI3FqvHx8nIAHYfKDC_z5Z2jDbLjGsTIdjOXnqlYmffrj7_BcXRE2BarBQ0CpvDD0jDjVwaU-rxfZFuJA17Rr8DZtKzWs1EJLksHJX70-i2pJfseRS3B8wKF-y41PHf84bZcRzjmA33",
     link: "https://billventory.vasan.tech/",
-    github: "https://github.com/Sabari-Vasan-SM/Billventory",
+    github: "https://github.com/Sabari-Vasan-SM/Billventory.git",
     technologies: ["React", "Node.js", "SupaBase","PDF Generation"],
     features: [
       "Real-time inventory tracking",
@@ -1007,7 +1007,7 @@ const projects = [
     image:
       "https://blogger.googleusercontent.com/img/a/AVvXsEhsYfdOfo0jMiCfm8_nap0hQ34TcC-1WX5oNnwHy1RapXuI9o5jZqhusjMJG7h_YtBPYJEA7PuCX0KwODBQKdHy6Wn59-jonbJ9Yg-2I3bXMW2At680inPPO77vZplzTuqI5r76eeVMH5VE-_48s9_djmxr2QGPKMYiPe-pZ5EMmyo3J4AHsOD1ox4DMznz",
     link: "https://github.com/Sabari-Vasan-SM/E-learning-Platform",
-    github: "https://github.com/Sabari-Vasan-SM/E-learning-Platform",
+    github: "https://github.com/Sabari-Vasan-SM/E-learning-Platform.git",
     technologies: ["React", "Node.js", "MongoDB", "Express", "JWT", "Video.js"],
     features: [
       "User authentication and authorization",
@@ -1028,7 +1028,7 @@ const projects = [
     image:
       "https://blogger.googleusercontent.com/img/a/AVvXsEjeS-5K7mj-AKhlX3nqXZXUdvbgZOz9mESOPz2sGrD2-gIOQSdegdHHHqpyIdZQvJKyH1pIFStddUKFs2bTdp5vVAXl90T_hpkPMq_OLwR07Y-ML-zHqSTWi9I-8_V6_7dlicXodvSXEfbSvgbZQMYKWxSMXUcpL9QadTCE6dAy_JjCPghkOrweLHdVY8uv",
     link: "https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-",
-    github: "https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-",
+    github: "https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-.git",
     technologies: ["HTML","CSS","JavaScript","MongoDB"],
     features: [
       "User profiles and social networking",
@@ -1049,7 +1049,7 @@ const projects = [
     image:
       "https://blogger.googleusercontent.com/img/a/AVvXsEgh4KUKLFaxZpJBLSqQ8JG6LqUsCXfBs0NGizVUpQebQ-cM6d1BfJ9RZBXd13qgIdKZjSTn6fFHMF9Ne3MZ6arnncuchPnfC-ud-AimuaOmF0-iM8fXVLYNS7CGEalpYgHVgWe_Jz9YW5wTnlLSJ9pjf1fTUXhvMWARW39caG7TmQRh3w0li0oUFR1XI6Zo",
     link: "https://github.com/Sabari-Vasan-SM/Gear-design-Calculator-with-live-Visualization",
-    github: "https://github.com/Sabari-Vasan-SM/Gear-design-Calculator-with-live-Visualization",
+    github: "https://github.com/Sabari-Vasan-SM/Gear-design-Calculator-with-live-Visualization.git",
     technologies: ["React","Node.js"],
     features: [
       "Real-time gear calculations",
@@ -1066,7 +1066,7 @@ const projects = [
     image:
       "https://blogger.googleusercontent.com/img/a/AVvXsEjtwp3qDUzFmk7FxCk22es1XudU5gXTfo83pE-roIOFeOAkaNpPwGxXcK8bj3CCDuxu_VUJAXV61SPxIeqD2wnHgWNapuVDT1Oktqv8hYZYO6--zgmpOG1i_W2SD7rPVAFh5DEgVeJOzVrL1i3hDPznz-S-C0d9x-015t73uoHN3_jPXAQMhDgCzfClEYc6",
     link: "https://admissionmanagement.netlify.app/",
-    github: "https://github.com/Sabari-Vasan-SM/Admisssion-management",
+    github: "https://github.com/Sabari-Vasan-SM/Admisssion-management.git",
     technologies: ["React", "Node.js",  "Express", "Payment Gateway", "PDF Generation"],
     features: [
       "Online application forms",
