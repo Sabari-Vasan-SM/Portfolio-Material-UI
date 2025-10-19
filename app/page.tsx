@@ -134,7 +134,7 @@ export default function Home() {
                   transition={{ delay: 0.2 }}
                 >
                   <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
-                  <span className="dark:text-gray-300 text-gray-700">Available for hire</span>
+                  <span className="dark:text-gray-300 text-gray-700">Available for Hire!</span>
                 </motion.div>
                 <motion.h1
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight dark:text-white text-gray-900"
