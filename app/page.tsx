@@ -805,7 +805,7 @@ const skillCategories = [
   { value: "cad", label: "CAD/CAM Tools" },
   { value: "design", label: "Design Tools" },
   { value: "devops", label: "DevOps" },
-  { value: "cloud", label: "Cloud" }, // ✅ Added Cloud
+  { value: "cloud", label: "Cloud" }, 
 ];
 
 const certificationsData = [
