@@ -90,9 +90,9 @@ export default function Home() {
       {/* Fixed Navigation Bar */}
       <EnhancedNavbar scrollToSection={scrollToSection} />
 
-      <main className="pt-16" role="main">
+      <main className="pt-16">
         {/* Hero Section */}
-        <section id="home" className="relative overflow-hidden py-20 md:py-32" aria-labelledby="hero-heading">
+        <section id="home" className="relative overflow-hidden py-20 md:py-32">
           <div className="absolute inset-0 -z-10">
             <motion.div
               className="absolute top-1/4 left-1/4 size-64 rounded-full bg-purple-200 dark:bg-purple-900 blur-3xl opacity-30"
@@ -137,7 +137,6 @@ export default function Home() {
                   <span className="dark:text-gray-300 text-gray-700">Available for Hire!</span>
                 </motion.div>
                 <motion.h1
-                  id="hero-heading"
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight dark:text-white text-gray-900"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -257,14 +256,14 @@ export default function Home() {
        
 
         {/* About Section */}
-        <section id="about" className="py-12 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300" aria-labelledby="about-heading">
+        <section id="about" className="py-12 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
           <div className="container px-4 md:px-6">
             <AnimatedSection animation="slide-up" className="text-center mb-8 md:mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-xs md:text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                 <span className="dark:text-gray-300 text-gray-700">About Me</span>
               </div>
-              <AnimatedHeading id="about-heading" className="text-2xl md:text-3xl lg:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+              <AnimatedHeading className="text-2xl md:text-3xl lg:text-4xl font-bold mt-4 dark:text-white text-gray-900">
                 Career Objective
               </AnimatedHeading>
             </AnimatedSection>
@@ -287,14 +286,14 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300" aria-labelledby="skills-heading">
+        <section id="skills" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300">
           <div className="container px-4 md:px-6">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-900 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                 <span className="dark:text-gray-300 text-gray-700">My Skills</span>
               </div>
-              <AnimatedHeading id="skills-heading" className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+              <AnimatedHeading className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
                 Technical Expertise
               </AnimatedHeading>
               <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mt-4">
@@ -343,14 +342,14 @@ export default function Home() {
         </section>
 
  {/* Certifications Section */}
-        <section id="certifications" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300" aria-labelledby="certifications-heading">
+        <section id="certifications" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
           <div className="container px-4 md:px-6">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                 <span className="dark:text-gray-300 text-gray-700">Credentials</span>
               </div>
-              <AnimatedHeading id="certifications-heading" className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+              <AnimatedHeading className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
                 Certifications
               </AnimatedHeading>
               <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mt-4">
@@ -366,14 +365,14 @@ export default function Home() {
           </div>
         </section>
         {/* Education Section */}
-        <section id="education" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300" aria-labelledby="education-heading">
+        <section id="education" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
           <div className="container px-4 md:px-6">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                 <span className="dark:text-gray-300 text-gray-700">My Journey</span>
               </div>
-              <AnimatedHeading id="education-heading" className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+              <AnimatedHeading className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
                 Education
               </AnimatedHeading>
               <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mt-4">
@@ -386,14 +385,14 @@ export default function Home() {
         </section>
 
         {/* Work Experience Section */}
-        <section id="experience" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300" aria-labelledby="experience-heading">
+        <section id="experience" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300">
           <div className="container px-4 md:px-6">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                 <span className="dark:text-gray-300 text-gray-700">Professional Journey</span>
               </div>
-              <AnimatedHeading id="experience-heading" className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+              <AnimatedHeading className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
                 Internships and Work Experience
               </AnimatedHeading>
               <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mt-4">
@@ -410,7 +409,6 @@ export default function Home() {
           id="projects"
           ref={projectsRef}
           className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
-          aria-labelledby="projects-heading"
         >
           <div className="container px-4 md:px-6">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
@@ -418,7 +416,7 @@ export default function Home() {
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                 <span className="dark:text-gray-300 text-gray-700">My Work</span>
               </div>
-              <AnimatedHeading id="projects-heading" className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+              <AnimatedHeading className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
                 Featured Projects
               </AnimatedHeading>
               <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mt-4">
@@ -433,14 +431,14 @@ export default function Home() {
         </section>
 
         {/* Achievements Section */}
-        <section id="achievements" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300" aria-labelledby="achievements-heading">
+        <section id="achievements" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300">
           <div className="container px-4 md:px-6">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-900 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                 <span className="dark:text-gray-300 text-gray-700">My Achievements</span>
               </div>
-              <AnimatedHeading id="achievements-heading" className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+              <AnimatedHeading className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
                 Recognition & Accomplishments
               </AnimatedHeading>
               <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mt-4">
@@ -458,7 +456,6 @@ export default function Home() {
         <section
           id="contact"
           className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300"
-          aria-labelledby="contact-heading"
         >
           <div className="absolute inset-0 -z-10">
             <motion.div
@@ -495,7 +492,7 @@ export default function Home() {
                   <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                   <span className="dark:text-gray-300 text-gray-700">Get In Touch</span>
                 </div>
-                <AnimatedHeading id="contact-heading" className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
+                <AnimatedHeading className="text-3xl md:text-4xl font-bold mt-4 dark:text-white text-gray-900">
                   Contact Me
                 </AnimatedHeading>
                 <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto mt-4">
