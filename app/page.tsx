@@ -143,6 +143,8 @@ export default function Home() {
                   transition={{ delay: 0.4 }}
                 >
                   <TypingAnimation text="Hi, I'm SabariVasan" speed={150} />
+                  {/* SEO: include target query without changing UI */}
+                  <span className="sr-only">SabariVasan Portfolio — Web Developer Portfolio</span>
                 </motion.h1>
                 <AnimatedSubtitle
                   text="Mechanical Engineer | Web Developer | Tech Aficionado"
