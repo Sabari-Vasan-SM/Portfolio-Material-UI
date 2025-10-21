@@ -9,6 +9,7 @@ import ClientLayout from "./ClientLayout"
 import { LoadingScreen } from "@/components/loading-screen"
 import { useState } from "react"
 
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
