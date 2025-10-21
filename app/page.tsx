@@ -222,34 +222,7 @@ export default function Home() {
                 </motion.div>
               </AnimatedSection>
               <AnimatedSection animation="zoom" delay={0.5} className="flex-1 relative">
-                <div className="relative size-48 sm:size-56 md:size-64 lg:size-80 mx-auto">
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 blur-md opacity-20"
-                    animate={{
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Number.POSITIVE_INFINITY,
-                      repeatType: "reverse",
-                    }}
-                  />
-                  <div className="absolute inset-1 md:inset-2 rounded-full bg-white dark:bg-gray-800" />
-                  <motion.div
-                    className="relative z-10 p-1 md:p-2 cursor-hover"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  >
-                    <Image
-                      src="https://avatars.githubusercontent.com/u/144119741?v=4"
-                      width={400}
-                      height={400}
-                      alt="SabariVasan portrait"
-                      className="rounded-full w-full h-full object-cover"
-                      priority
-                    />
-                  </motion.div>
-                </div>
+                <ProfileImageFlip />
               </AnimatedSection>
             </div>
           </div>
@@ -653,6 +626,46 @@ export default function Home() {
         </section>
       </main>
       <ResumeModal isOpen={resumeModalOpen} onClose={() => setResumeModalOpen(false)} />
+    </div>
+  )
+}
+
+// Profile Image Flip Component
+function ProfileImageFlip() {
+  const [isFlipped, setIsFlipped] = useState(false)
+
+  return (
+    <div className="relative size-48 sm:size-56 md:size-64 lg:size-80 mx-auto perspective-1000">
+      <motion.div
+        className="relative w-full h-full preserve-3d cursor-pointer"
+        animate={{ rotateY: isFlipped ? 180 : 0, scale: isFlipped ? 1.1 : 1 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        onHoverStart={() => setIsFlipped(true)}
+        onHoverEnd={() => setIsFlipped(false)}
+      >
+        {/* Front Side - GitHub Avatar */}
+        <div className="absolute inset-0 backface-hidden">
+          <Image
+            src="https://avatars.githubusercontent.com/u/144119741?v=4"
+            width={400}
+            height={400}
+            alt="SabariVasan portrait"
+            className="rounded-full w-full h-full object-cover shadow-xl"
+            priority
+          />
+        </div>
+
+        {/* Back Side - Alternate Image */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <Image
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEgZSLLa8OKAYuNPk41qb8jUXT5azIEBnWDg8HxWuBBbmBZxWQYkwR3selt1IqxK5xO4tfkl3lHClgzgh0bvC_894En3M3I1eMptbEDYQFV_3D_Quu52OKv2ivVEmIXVtLlo0riqVCboa65cvd3GzTn1dX1EeE2mO4vL83fsqE6eUp6hPPrcOKg87AhGMT_Q"
+            width={400}
+            height={400}
+            alt="SabariVasan alternate portrait"
+            className="rounded-full w-full h-full object-cover shadow-xl"
+          />
+        </div>
+      </motion.div>
     </div>
   )
 }
