@@ -30,7 +30,7 @@ export const metadata: Metadata = {
       "Portfolio of SabariVasan: Web Developer and IT enthusiast. Explore projects, skills, certifications, and contact details.",
     images: [
       {
-        url: "/placeholder-user.jpg",
+        url: "/favicon.ico",
         width: 1200,
         height: 630,
         alt: "SabariVasan Portfolio",
