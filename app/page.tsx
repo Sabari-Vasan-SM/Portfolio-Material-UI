@@ -856,6 +856,15 @@ const certificationsData = [
     description: 'This journey sharpened my skills in crafting killer prompts, leveraging AI models like a pro, and embedding prompt engineering into real-world dev workflows.',
     image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgGvVBfR0jCduTYXkHA3puSaa5xD-zlEgcJgWxJilzNjENaIT-cWdZDIzsG7BFRV2rMhw2xYSZx_LzyKabZYNhG9b74v5sR5XC91JtykhRkJpEb-n7oHoI8gzh45WIQPiyQdnDmbQHvKQmwH7Ea4flOyVNlcVaX2N_qul_djSpJmwUe-C-9_MDzrpZFDi4g',
   },
+  {
+  id: 'cert-5',
+  title: 'Agile Fundamentals English KEC 2026 06',
+  issuer: 'GUVI | HCL (in collaboration with Google for Education)',
+  year: '2025',
+  description: 'Successfully completed the Agile Fundamentals course, gaining knowledge of Agile principles, iterative workflows, and team collaboration practices.',
+  image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgmS4c-Tv6eNa3lFNceCtZupUFy7o-d7GDB4cok6CStdfc6A7PlEmf5er-pEz7OtQULxnp7kDKUAGZ1QQjA9-QjfxvpBHd1yebrKmWpBN9C7pGO9VvNiaKvceRHTxwgkOKLWIgiLJQlQbD0d42z_qiX8PWWfzh94XEC9EV0MyNz4WIeucEZ987Vl2Y8y0KS'
+}
+
 ]
 
 const skills = [
