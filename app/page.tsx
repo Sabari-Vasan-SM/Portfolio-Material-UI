@@ -85,15 +85,15 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#e8eaed] dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-[#e8eaed] dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 overflow-x-hidden w-full">
       <CursorFollower />
 
       {/* Fixed Navigation Bar */}
       <EnhancedNavbar scrollToSection={scrollToSection} />
 
-      <main className="pt-16">
+      <main className="pt-16 w-full overflow-x-hidden">
         {/* Hero Section */}
-        <section id="home" className="relative overflow-hidden py-20 md:py-32">
+        <section id="home" className="relative overflow-hidden py-12 sm:py-16 md:py-24 lg:py-32 w-full">
           <div className="absolute inset-0 -z-10">
             <motion.div
               className="absolute top-1/4 left-1/4 size-64 rounded-full bg-purple-200 dark:bg-purple-900 blur-3xl opacity-30"
@@ -122,23 +122,23 @@ export default function Home() {
               }}
             />
           </div>
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-16">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 w-full">
               <AnimatedSection
                 animation="slide-right"
-                className="flex-1 space-y-4 md:space-y-6 text-center md:text-left"
+                className="flex-1 w-full max-w-2xl space-y-3 sm:space-y-4 md:space-y-6 text-center md:text-left px-2 sm:px-0"
               >
                 <motion.div
-                  className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-xs md:text-sm"
+                  className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-2.5 sm:px-3 py-1 text-xs sm:text-sm mx-auto md:mx-0"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
                   <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
-                  <span className="dark:text-gray-300 text-gray-700">Available for Hire!</span>
+                  <span className="dark:text-gray-300 text-gray-700 whitespace-nowrap">Available for Hire!</span>
                 </motion.div>
                 <motion.h1
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight dark:text-white text-gray-900"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight dark:text-white text-gray-900 break-words"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
@@ -149,11 +149,11 @@ export default function Home() {
                 </motion.h1>
                 <AnimatedSubtitle
                   text="Mechanical Engineer | Web Developer | Tech Aficionado"
-                  className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-md mx-auto md:mx-0 leading-relaxed"
+                  className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-md mx-auto md:mx-0 leading-relaxed px-2 sm:px-0"
                   delay={2.5}
                 />
                 <motion.div
-                  className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center md:justify-start"
+                  className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center md:justify-start items-center w-full px-2 sm:px-0"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 3 }}
@@ -165,11 +165,12 @@ export default function Home() {
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="w-full sm:w-auto"
                   >
                     <AnimatedButton
                       variant="gradient"
                       onClick={() => setResumeModalOpen(true)}
-                      className="text-sm md:text-base px-4 md:px-6 py-2 md:py-3 relative overflow-hidden group"
+                      className="text-sm md:text-base px-4 sm:px-5 md:px-6 py-2.5 md:py-3 relative overflow-hidden group w-full sm:w-auto"
                     >
                       <motion.div
                         className="flex items-center gap-2"
@@ -196,11 +197,12 @@ export default function Home() {
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="w-full sm:w-auto"
                   >
                     <AnimatedButton
                       variant="outline"
                       onClick={() => scrollToSection("projects")}
-                      className="text-sm md:text-base px-4 md:px-6 py-2 md:py-3 relative overflow-hidden group border-2"
+                      className="text-sm md:text-base px-4 sm:px-5 md:px-6 py-2.5 md:py-3 relative overflow-hidden group border-2 w-full sm:w-auto"
                     >
                       <motion.div
                         className="flex items-center gap-2"
@@ -222,7 +224,7 @@ export default function Home() {
                   </motion.div>
                 </motion.div>
               </AnimatedSection>
-              <AnimatedSection animation="zoom" delay={0.5} className="flex-1 relative">
+              <AnimatedSection animation="zoom" delay={0.5} className="flex-1 w-full max-w-md flex justify-center items-center px-2 sm:px-0">
                 <ProfileImageFlip />
               </AnimatedSection>
             </div>
@@ -232,9 +234,9 @@ export default function Home() {
        
 
         {/* About Section */}
-        <section id="about" className="py-12 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-          <div className="container px-4 md:px-6">
-            <AnimatedSection animation="slide-up" className="text-center mb-8 md:mb-12">
+        <section id="about" className="py-12 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300 w-full overflow-x-hidden">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+            <AnimatedSection animation="slide-up" className="text-center mb-8 md:mb-12 px-2 sm:px-0">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-xs md:text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                 <span className="dark:text-gray-300 text-gray-700">About Me</span>
@@ -262,8 +264,8 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300">
-          <div className="container px-4 md:px-6">
+        <section id="skills" className="py-12 sm:py-16 md:py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300 w-full overflow-x-hidden">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-900 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
@@ -318,8 +320,8 @@ export default function Home() {
         </section>
 
  {/* Certifications Section */}
-        <section id="certifications" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-          <div className="container px-4 md:px-6">
+        <section id="certifications" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300 w-full overflow-x-hidden">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
@@ -341,8 +343,8 @@ export default function Home() {
           </div>
         </section>
         {/* Education Section */}
-        <section id="education" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-          <div className="container px-4 md:px-6">
+        <section id="education" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300 w-full overflow-x-hidden">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
@@ -361,8 +363,8 @@ export default function Home() {
         </section>
 
         {/* Work Experience Section */}
-        <section id="experience" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300">
-          <div className="container px-4 md:px-6">
+        <section id="experience" className="py-12 sm:py-16 md:py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300 w-full overflow-x-hidden">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
@@ -384,9 +386,9 @@ export default function Home() {
         <section
           id="projects"
           ref={projectsRef}
-          className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
+          className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300 w-full overflow-x-hidden"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
@@ -407,8 +409,8 @@ export default function Home() {
         </section>
 
         {/* Achievements Section */}
-        <section id="achievements" className="py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300">
-          <div className="container px-4 md:px-6">
+        <section id="achievements" className="py-12 sm:py-16 md:py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300 w-full overflow-x-hidden">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-900 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
@@ -431,7 +433,7 @@ export default function Home() {
         {/* Contact Section */}
         <section
           id="contact"
-          className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300"
+          className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300 w-full"
         >
           <div className="absolute inset-0 -z-10">
             <motion.div
@@ -461,9 +463,9 @@ export default function Home() {
               }}
             />
           </div>
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <div className="max-w-3xl mx-auto">
-              <AnimatedSection animation="slide-up" className="text-center mb-12">
+              <AnimatedSection animation="slide-up" className="text-center mb-8 sm:mb-10 md:mb-12 px-2 sm:px-0">
                 <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-800 px-3 py-1 text-sm mx-auto">
                   <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
                   <span className="dark:text-gray-300 text-gray-700">Get In Touch</span>
@@ -636,13 +638,14 @@ function ProfileImageFlip() {
   const [isFlipped, setIsFlipped] = useState(false)
 
   return (
-    <div className="relative size-48 sm:size-56 md:size-64 lg:size-80 mx-auto perspective-1000">
+    <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-80 xl:h-80 mx-auto perspective-1000">
       <motion.div
         className="relative w-full h-full preserve-3d cursor-pointer"
-        animate={{ rotateY: isFlipped ? 180 : 0, scale: isFlipped ? 1.1 : 1 }}
+        animate={{ rotateY: isFlipped ? 180 : 0, scale: isFlipped ? 1.05 : 1 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
         onHoverStart={() => setIsFlipped(true)}
         onHoverEnd={() => setIsFlipped(false)}
+        onClick={() => setIsFlipped(!isFlipped)}
       >
         {/* Front Side - GitHub Avatar */}
         <div className="absolute inset-0 backface-hidden">
