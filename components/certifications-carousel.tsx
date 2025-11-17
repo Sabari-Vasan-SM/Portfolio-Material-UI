@@ -121,7 +121,7 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
                 <img
                   src={items[index]?.image}
                   alt={items[index]?.title}
-                  className="w-full h-full object-cover cursor-pointer"
+                  className="w-full h-full object-contain cursor-pointer"
                   onClick={() => { setAutoplay(false); setSelected(items[index]); setOpen(true) }}
                 />
               </div>
@@ -149,7 +149,7 @@ export const CertificationsCarousel: React.FC<CertificationsCarouselProps> = ({ 
                 className={`w-20 h-12 rounded-md overflow-hidden border transition-shadow ${i === index ? 'ring-2 ring-purple-300 shadow-md' : 'border-gray-200 dark:border-gray-700'}`}
                 aria-label={`Go to ${it.title}`}
               >
-                <img src={it.image} alt={it.title} className="w-full h-full object-cover" />
+                <img src={it.image} alt={it.title} className="w-full h-full object-contain" />
               </button>
             ))}
           </div>

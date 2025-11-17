@@ -832,6 +832,7 @@ const certificationsData = [
     description: 'The MongoDB Associate Developer Certificate proves your ability to build and manage applications using MongoDB. It highlights your skills in schema design, querying, and performance optimization.',
     image: 'https://blogger.googleusercontent.com/img/a/AVvXsEi2weDcawnTqAAackNyJj0CboNfvXpKDMQT-VksC5C9gmYDfIp8G8NvI3HX2Uzf2EQhMe3JvglRoVbwV4q4UQ1RlWLNmzuH05CMXaVXZOdZhtWPDmYXxDNGwNabSjrlsecsmALm2bbDgxb0UIk-VVZqgD50PG65rx3yW4HYxowZ44c9JSgkWDQz_HkvA0qp',
   },
+  
   {
     id: 'cert-2',
     title: 'React JS ',
@@ -863,6 +864,14 @@ const certificationsData = [
   year: '2025',
   description: 'Successfully completed the Agile Fundamentals course, gaining knowledge of Agile principles, iterative workflows, and team collaboration practices.',
   image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgmS4c-Tv6eNa3lFNceCtZupUFy7o-d7GDB4cok6CStdfc6A7PlEmf5er-pEz7OtQULxnp7kDKUAGZ1QQjA9-QjfxvpBHd1yebrKmWpBN9C7pGO9VvNiaKvceRHTxwgkOKLWIgiLJQlQbD0d42z_qiX8PWWfzh94XEC9EV0MyNz4WIeucEZ987Vl2Y8y0KS'
+},
+  {
+  id: 'cert-google-gemini',
+  title: 'Gemini Certified Student',
+  issuer: 'Google for Education',
+  year: '2025',
+  description: 'Earned the Gemini Certified Student credential for demonstrating the essential knowledge, skills, and foundational competencies required to use Google AI effectively in academic and practical applications. Certification valid through 2028.',
+  image: 'https://blogger.googleusercontent.com/img/a/AVvXsEilN7gAIKA-LWoQFPeCgfhCKdSZOK3KtEpC7nimgb1dCXKhkCZ7T0-xSRJwuI2Thrw2XpFhr0v6jtlzU3yCCCPN7n74D0LhPEQ6H93nnGkIC0lSSKLniERw-h5aNHcwwZRvpFt1ugu-dTispgIBTUAp50BfptFbZwFBMe4LliGCk-TC5AlYLASOQWaaq_yB'
 }
 
 ]
