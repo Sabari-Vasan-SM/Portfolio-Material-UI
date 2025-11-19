@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import React from 'react';
 import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Loader = () => {
   return (
@@ -254,28 +255,79 @@ const StyledWrapper = styled.div`
   }`;
 
 export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
-  const [isVisible, setIsVisible] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
+  const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
+  const [showGreetings, setShowGreetings] = useState(false);
+
+  const greetings = ['Hello', 'வணக்கம்', 'नमस्ते', 'Hola', 'Bonjour', 'Hallo', 'こんにちは'];
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-      onComplete(); // Notify parent when loading is complete
-  }, 1500); // Display for 1.5 seconds
+    // Hide loader after 1.5 seconds and start showing greetings
+    const loaderTimer = setTimeout(() => {
+      setShowLoader(false);
+      setShowGreetings(true);
+    }, 1500);
 
-    return () => clearTimeout(timer);
-  }, [onComplete]);
+    return () => clearTimeout(loaderTimer);
+  }, []);
 
-  if (!isVisible) return null;
+  useEffect(() => {
+    if (!showGreetings) return;
+
+    if (currentGreetingIndex < greetings.length) {
+      const greetingTimer = setTimeout(() => {
+        setCurrentGreetingIndex(prev => prev + 1);
+      }, 800); // Show each greeting for 0.8 seconds
+
+      return () => clearTimeout(greetingTimer);
+    } else {
+      // All greetings shown, complete loading
+      const completeTimer = setTimeout(() => {
+        onComplete();
+      }, 300); // Small delay after last greeting
+
+      return () => clearTimeout(completeTimer);
+    }
+  }, [showGreetings, currentGreetingIndex, greetings.length, onComplete]);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 z-50">
       <div className="relative">
-        <Loader />
-        <div className="absolute top-full mt-8 left-1/2 transform -translate-x-1/2">
-          <p className="text-gray-600 dark:text-gray-300 text-sm font-medium animate-pulse">
-             Loading...
-          </p>
-        </div>
+        <AnimatePresence mode="wait">
+          {showLoader && (
+            <motion.div
+              key="loader"
+              initial={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <Loader />
+              <div className="absolute top-full mt-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium animate-pulse">
+                  Loading...
+                </p>
+              </div>
+            </motion.div>
+          )}
+
+          {showGreetings && currentGreetingIndex < greetings.length && (
+            <motion.div
+              key={`greeting-${currentGreetingIndex}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.1 }}
+              transition={{ 
+                duration: 0.4, 
+                ease: [0.4, 0.0, 0.2, 1] // Soft easing curve
+              }}
+              className="text-center"
+            >
+              <p className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent whitespace-nowrap px-4">
+                {greetings[currentGreetingIndex]}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
