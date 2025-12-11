@@ -1119,6 +1119,15 @@ const projects = [
 
 const achievements = [
   {
+    title: "International Conference Paper Presentation",
+    description:
+      "Presented research paper on Automated Fault Diagnosis of Gear Tooth Defects Using Deep Learning at International Conference on Power Control & Computing Technologies '25, Sona College of Technology",
+    image:
+      "https://blogger.googleusercontent.com/img/a/AVvXsEjSEXp-IOpTwwLyw9r3i348wREt86-XUE7Fb1pQXJAujs-a1QIw_C3iMuMITFie6xQI9k95R_YfC7ppKbfMwlfIzn7maEVV4vQWZa2A1F6cpix9jPM1BaHiUVCHFCX8n8fA2G9qOJB2IRkT3cnu_J1KVDK3sxngaW6T-CY5NlftXpxKjteNAei70RxpYLTD",
+    type: "presentation" as const,
+    date: "2024",
+  },
+  {
     title: "Selected for Hackathon",
     description:
       "Successfully selected to participate in a prestigious Smart India Hackathon competition, showcasing innovative problem-solving skills and technical expertise.",

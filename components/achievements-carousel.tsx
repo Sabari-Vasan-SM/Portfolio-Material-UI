@@ -10,7 +10,7 @@ interface Achievement {
   title: string
   description: string
   image: string
-  type: "certificate" | "prize" | "selection"
+  type: "certificate" | "prize" | "selection" | "presentation"
   date: string
 }
 

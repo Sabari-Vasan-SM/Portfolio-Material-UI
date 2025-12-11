@@ -8,7 +8,7 @@ interface Achievement {
   title: string
   description: string
   image: string
-  type: "certificate" | "prize" | "selection"
+  type: "certificate" | "prize" | "selection" | "presentation"
   date: string
 }
 
@@ -37,6 +37,13 @@ const typeConfig = {
     color: "from-green-500 to-emerald-500",
     bgColor: "bg-green-50 dark:bg-green-900/20",
     textColor: "text-green-600 dark:text-green-400",
+  },
+  presentation: {
+    icon: Award,
+    label: "Presentation",
+    color: "from-purple-500 to-pink-500",
+    bgColor: "bg-purple-50 dark:bg-purple-900/20",
+    textColor: "text-purple-600 dark:text-purple-400",
   },
 }
 
