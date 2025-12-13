@@ -148,7 +148,7 @@ export default function Home() {
                   <span className="sr-only">SabariVasan Portfolio — Web Developer Portfolio</span>
                 </motion.h1>
                 <AnimatedSubtitle
-                  text="Mechanical Engineer | Web Developer | Tech Aficionado"
+                  text=" Web Craftsman | Tech Aficionado | AI-Driven Coder"
                   className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-md mx-auto md:mx-0 leading-relaxed px-2 sm:px-0"
                   delay={2.5}
                 />
@@ -769,20 +769,7 @@ function FlipCard() {
 }
 
 const workExperiences = [
-  {
-    title: "CNC Operator",
-    company: "Sakthi Auto Component Limited",
-    location: "Perundurai",
-    duration: "1 Month (Full-Time)",
-    type: "Full-Time",
-  },
-  {
-    title: "Workshop Fitter and Welder",
-    company: "Sakthi Sugars",
-    location: "Appakudal",
-    duration: "15 Days (Intern)",
-    type: "Internship",
-  },
+ 
   {
     title: "Web Developer Intern",
     company: "InternPe",
