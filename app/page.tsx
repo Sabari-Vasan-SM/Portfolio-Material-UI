@@ -864,7 +864,14 @@ const certificationsData = [
   description: 'Successfully completed the Agile Fundamentals course, gaining knowledge of Agile principles, iterative workflows, and team collaboration practices.',
   image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgmS4c-Tv6eNa3lFNceCtZupUFy7o-d7GDB4cok6CStdfc6A7PlEmf5er-pEz7OtQULxnp7kDKUAGZ1QQjA9-QjfxvpBHd1yebrKmWpBN9C7pGO9VvNiaKvceRHTxwgkOKLWIgiLJQlQbD0d42z_qiX8PWWfzh94XEC9EV0MyNz4WIeucEZ987Vl2Y8y0KS'
 },
-  
+  {
+  id: 'cert-6',
+  title: 'Foundations of Git – Certification Course',
+  issuer: 'GitKraken',
+  year: '2025',
+  description: 'Successfully completed GitKraken\'s Foundations of Git certification, gaining strong hands-on knowledge of Git version control, including repositories, branching, merging, commits, and real-world collaboration workflows.',
+  image: 'https://blogger.googleusercontent.com/img/a/AVvXsEiPug72_GIaoY81oZ5zq8kUkEbwONtx973qLitBD9FFZdRWb8_bztKRMzxz5Xn1lDE1g8gagpIyZRg44tJmocNxib2ak1B30bevRJ8BxqRkDjH9lUsFfYWc331mabD0E7FSTxvh3RdLVaOqaSEprE9UCROeFyL-bv7aYHIZTjPaTcv7HPX2Mmc4gXvVxAGz'
+},
 ]
 
 const skills = [
