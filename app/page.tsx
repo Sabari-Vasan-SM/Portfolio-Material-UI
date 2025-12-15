@@ -1065,23 +1065,35 @@ const projects = [
     category: "Web Development",
   },
   {
-    title: "Gear Design Calculator with Live Visualization",
-    description:
-      "An interactive tool for gear design calculations with real-time 3D visualization and engineering analysis.",
-    fullDescription:
-      "A sophisticated engineering tool that combines gear design calculations with live 3D visualization. Engineers can input parameters, see real-time calculations, and visualize gear meshes in 3D. The tool includes stress analysis, material selection, and export capabilities for CAD software.",
-    image:
-      "https://blogger.googleusercontent.com/img/a/AVvXsEgh4KUKLFaxZpJBLSqQ8JG6LqUsCXfBs0NGizVUpQebQ-cM6d1BfJ9RZBXd13qgIdKZjSTn6fFHMF9Ne3MZ6arnncuchPnfC-ud-AimuaOmF0-iM8fXVLYNS7CGEalpYgHVgWe_Jz9YW5wTnlLSJ9pjf1fTUXhvMWARW39caG7TmQRh3w0li0oUFR1XI6Zo",
-    link: "https://github.com/Sabari-Vasan-SM/Gear-design-Calculator-with-live-Visualization",
-    github: "https://github.com/Sabari-Vasan-SM/Gear-design-Calculator-with-live-Visualization.git",
-    technologies: ["React","Node.js"],
-    features: [
-      "Real-time gear calculations",
-      "2D visualization and animation",
-      
-    ],
-    category: "Mech & Web",
-  },
+  title: "Gear Fault Detection System",
+  description:
+    "An intelligent computer vision system for detecting and localizing gear defects using YOLOv8 Oriented Object Detection (OBB).",
+  fullDescription:
+    "A deep learning–based gear fault detection system that uses YOLOv8 with oriented bounding boxes to accurately identify, localize, and visualize multiple types of gear defects. The system supports rotated defect detection, real-time inference, overlay visualization, and performance analysis using metrics such as precision, recall, F1-score, and mAP.",
+  image:
+    "https://blogger.googleusercontent.com/img/a/AVvXsEgKmFwmaA9c6OsRvYIp8Bo6wdK9XYMeNaCT4q1fmbvBHwVSocYXkayYi7bfnVzUG_XjUaZE0yuFsURNP7DIsQXydBSV3qdCCBe6u333xWg-V6JS8BnRoqCmljnKu9EMrXQjCSpzaX2GdGpN1AqvrViGa52MooQRf30oi5Eg0vYoVKK2BrLQmWIdsajbsFp0",
+  link:
+    "https://github.com/Final-Year-Projects-KEC/Final-Code-With-Accuray-And-Graph-Metrics",
+  github:
+    "https://github.com/Final-Year-Projects-KEC/Final-Code-With-Accuray-And-Graph-Metrics",
+  technologies: [
+    "Python",
+    "YOLOv8",
+    "Ultralytics",
+    "OpenCV",
+    "Deep Learning",
+    "Computer Vision"
+  ],
+  features: [
+    "Oriented object detection using YOLOv8-OBB",
+    "Detection of multiple gear defect types (hp_cd, hp_cm, kp)",
+    "Rotated bounding box and polygon-based visualization",
+    "Real-time defect prediction on test images",
+    "Training and validation with precision, recall, F1-score, and mAP analysis",
+    "Automated overlay generation for defect localization"
+  ],
+  category: "Computer Vision / Deep Learning"
+},
   {
     title: "Admission Management System",
     description: "A comprehensive system for managing student admissions, applications, and enrollment processes.",
