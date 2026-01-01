@@ -23,6 +23,7 @@ import { HorizontalProjects } from "@/components/horizontal-projects"
 import { AchievementsCarousel } from "@/components/achievements-carousel"
 import { ResumeModal } from "@/components/resume-modal"
 import CertificationsCarousel from "@/components/certifications-carousel"
+import { StatusBox } from "@/components/status-box"
 
 const socialLinks = [
   {
@@ -152,6 +153,7 @@ export default function Home() {
                   className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-md mx-auto md:mx-0 leading-relaxed px-2 sm:px-0"
                   delay={2.5}
                 />
+                <StatusBox />
                 <motion.div
                   className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center md:justify-start items-center w-full px-2 sm:px-0"
                   initial={{ opacity: 0 }}
