@@ -664,7 +664,7 @@ function ProfileImageFlip() {
         {/* Back Side - Alternate Image */}
         <div className="absolute inset-0 backface-hidden rotate-y-180">
           <Image
-            src="https://blogger.googleusercontent.com/img/a/AVvXsEhZVA9q4Kll2t_CciUSZJiA34fWLWuN9FXQIKDmgDb64nzww0YS1p1mW0_1Bzs7Fqf3JlfVg6PJJPdmdHSjtWU8SMiIsAI-7T6SGtz3tUOWXCRsK5CObOgWKEGy1-QjYvBh5lrAFykUXgUJe2av0lUP4x56fQIPzX6oIpJuW_RP58aRpvbgbK0RWqkurwES"
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEh_cdEffll--7vxYpKvhIS4r5JiuJ6eqItNasVzuMrWWOYJf-IFmt0xBaWUgsa6Lg1mCaWNWMGiA1-xH4c1nrLwXGV8Xw-HCKdLIhQILDwUjw-PQ7w-VY0xSSoVh3NcRgzFtJX1oKR4bxxJHkfJDag0xhDq3svhkykStmCg8m0SunlBAloL9NkDZYfIJTU1"
             width={400}
             height={400}
             alt="SabariVasan alternate portrait"
