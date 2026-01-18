@@ -655,6 +655,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+
       <ResumeModal isOpen={resumeModalOpen} onClose={() => setResumeModalOpen(false)} />
 
       {/* Contact Form Success Modal */}
@@ -712,6 +713,9 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Chrome Dino Game Modal - REMOVED */}
+
     </div>
   )
 }
@@ -755,6 +759,11 @@ function ProfileImageFlip() {
       </motion.div>
     </div>
   )
+}
+
+// Legacy Easter egg placeholder (unused)
+function FlappyGame() {
+  return null
 }
 
 // Flip Card Component
