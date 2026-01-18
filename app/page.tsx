@@ -64,6 +64,7 @@ export default function Home() {
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [resumeModalOpen, setResumeModalOpen] = useState(false)
+  const [contactFormOpen, setContactFormOpen] = useState(false)
   const projectsRef = useRef<HTMLDivElement>(null)
   const { theme } = useTheme()
 
@@ -71,6 +72,30 @@ export default function Home() {
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // Handle contact form submission
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formElement = e.currentTarget as HTMLFormElement
+    const formData = new FormData(formElement)
+
+    try {
+      const response = await fetch("https://formspree.io/f/xjkrokoj", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+
+      if (response.ok) {
+        setContactFormOpen(true)
+        formElement.reset()
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+    }
+  }
 
   // Smooth scroll function
   const scrollToSection = (sectionId: string) => {
@@ -233,7 +258,7 @@ export default function Home() {
           </div>
         </section>
 
-       
+
 
         {/* About Section */}
         <section id="about" className="py-12 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300 w-full overflow-x-hidden">
@@ -321,7 +346,7 @@ export default function Home() {
           </div>
         </section>
 
- {/* Certifications Section */}
+        {/* Certifications Section */}
         <section id="certifications" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900 transition-colors duration-300 w-full overflow-x-hidden">
           <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
             <AnimatedSection animation="slide-up" className="text-center mb-12">
@@ -558,7 +583,7 @@ export default function Home() {
                         <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 dark:text-white text-gray-900">
                           Send a Message
                         </h3>
-                        <form action="https://formspree.io/f/xjkrokoj" method="POST" className="space-y-3 md:space-y-4">
+                        <form onSubmit={handleContactSubmit} className="space-y-3 md:space-y-4">
                           <div>
                             <label
                               htmlFor="name"
@@ -630,7 +655,67 @@ export default function Home() {
           </div>
         </section>
       </main>
+
       <ResumeModal isOpen={resumeModalOpen} onClose={() => setResumeModalOpen(false)} />
+
+      {/* Contact Form Success Modal */}
+      <AnimatePresence>
+        {contactFormOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setContactFormOpen(false)}
+          >
+            <motion.div
+              className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 max-w-md w-full"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.div
+                className="text-center"
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                <motion.div
+                  className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center"
+                  animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </motion.div>
+
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  Message Sent Successfully!
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  Thank you for reaching out. Kindly wait for my response. I'll get back to you as soon as possible.
+                </p>
+
+                <motion.button
+                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all"
+                  onClick={() => setContactFormOpen(false)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Close
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Chrome Dino Game Modal - REMOVED */}
+
     </div>
   )
 }
@@ -674,6 +759,11 @@ function ProfileImageFlip() {
       </motion.div>
     </div>
   )
+}
+
+// Legacy Easter egg placeholder (unused)
+function FlappyGame() {
+  return null
 }
 
 // Flip Card Component
@@ -771,7 +861,13 @@ function FlipCard() {
 }
 
 const workExperiences = [
- 
+  {
+    title: "Software Developer",
+    company: "Harvee Designs",
+    location: "Coimbatore",
+    duration: "Currently",
+    type: "Full Time",
+  },
   {
     title: "Web Developer Intern",
     company: "InternPe",
@@ -798,11 +894,11 @@ const interests = [
     description: "Leveraging cloud platforms to build scalable and efficient solutions for various applications.",
   },
   {
-  title: "DevOps",
-  description: "Implementing CI/CD pipelines, automation, and monitoring to ensure seamless development and deployment workflows.",
-}
+    title: "DevOps",
+    description: "Implementing CI/CD pipelines, automation, and monitoring to ensure seamless development and deployment workflows.",
+  }
 
- 
+
 ]
 
 const skillCategories = [
@@ -810,10 +906,9 @@ const skillCategories = [
   { value: "frontend", label: "Front End" },
   { value: "backend", label: "Back End" },
   { value: "database", label: "Database" },
-  { value: "cad", label: "CAD/CAM Tools" },
   { value: "design", label: "Design Tools" },
   { value: "devops", label: "DevOps" },
-  { value: "cloud", label: "Cloud" }, 
+  { value: "cloud & hosting", label: "Cloud & Hosting" },
 ];
 
 const certificationsData = [
@@ -826,13 +921,13 @@ const certificationsData = [
     image: 'https://blogger.googleusercontent.com/img/a/AVvXsEi2weDcawnTqAAackNyJj0CboNfvXpKDMQT-VksC5C9gmYDfIp8G8NvI3HX2Uzf2EQhMe3JvglRoVbwV4q4UQ1RlWLNmzuH05CMXaVXZOdZhtWPDmYXxDNGwNabSjrlsecsmALm2bbDgxb0UIk-VVZqgD50PG65rx3yW4HYxowZ44c9JSgkWDQz_HkvA0qp',
   },
   {
-  id: 'cert-google-gemini',
-  title: 'Gemini Certified Student',
-  issuer: 'Google for Education',
-  year: '2025',
-  description: 'Earned the Gemini Certified Student credential for demonstrating the essential knowledge, skills, and foundational competencies required to use Google AI effectively in academic and practical applications. Certification valid through 2028.',
-  image: 'https://blogger.googleusercontent.com/img/a/AVvXsEilN7gAIKA-LWoQFPeCgfhCKdSZOK3KtEpC7nimgb1dCXKhkCZ7T0-xSRJwuI2Thrw2XpFhr0v6jtlzU3yCCCPN7n74D0LhPEQ6H93nnGkIC0lSSKLniERw-h5aNHcwwZRvpFt1ugu-dTispgIBTUAp50BfptFbZwFBMe4LliGCk-TC5AlYLASOQWaaq_yB'
-},
+    id: 'cert-google-gemini',
+    title: 'Gemini Certified Student',
+    issuer: 'Google for Education',
+    year: '2025',
+    description: 'Earned the Gemini Certified Student credential for demonstrating the essential knowledge, skills, and foundational competencies required to use Google AI effectively in academic and practical applications. Certification valid through 2028.',
+    image: 'https://blogger.googleusercontent.com/img/a/AVvXsEilN7gAIKA-LWoQFPeCgfhCKdSZOK3KtEpC7nimgb1dCXKhkCZ7T0-xSRJwuI2Thrw2XpFhr0v6jtlzU3yCCCPN7n74D0LhPEQ6H93nnGkIC0lSSKLniERw-h5aNHcwwZRvpFt1ugu-dTispgIBTUAp50BfptFbZwFBMe4LliGCk-TC5AlYLASOQWaaq_yB'
+  },
 
   {
     id: 'cert-2',
@@ -859,44 +954,44 @@ const certificationsData = [
     image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgGvVBfR0jCduTYXkHA3puSaa5xD-zlEgcJgWxJilzNjENaIT-cWdZDIzsG7BFRV2rMhw2xYSZx_LzyKabZYNhG9b74v5sR5XC91JtykhRkJpEb-n7oHoI8gzh45WIQPiyQdnDmbQHvKQmwH7Ea4flOyVNlcVaX2N_qul_djSpJmwUe-C-9_MDzrpZFDi4g',
   },
   {
-  id: 'cert-5',
-  title: 'Agile Fundamentals English KEC 2026 06',
-  issuer: 'GUVI | HCL (in collaboration with Google for Education)',
-  year: '2025',
-  description: 'Successfully completed the Agile Fundamentals course, gaining knowledge of Agile principles, iterative workflows, and team collaboration practices.',
-  image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgmS4c-Tv6eNa3lFNceCtZupUFy7o-d7GDB4cok6CStdfc6A7PlEmf5er-pEz7OtQULxnp7kDKUAGZ1QQjA9-QjfxvpBHd1yebrKmWpBN9C7pGO9VvNiaKvceRHTxwgkOKLWIgiLJQlQbD0d42z_qiX8PWWfzh94XEC9EV0MyNz4WIeucEZ987Vl2Y8y0KS'
-},
+    id: 'cert-5',
+    title: 'Agile Fundamentals English KEC 2026 06',
+    issuer: 'GUVI | HCL (in collaboration with Google for Education)',
+    year: '2025',
+    description: 'Successfully completed the Agile Fundamentals course, gaining knowledge of Agile principles, iterative workflows, and team collaboration practices.',
+    image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgmS4c-Tv6eNa3lFNceCtZupUFy7o-d7GDB4cok6CStdfc6A7PlEmf5er-pEz7OtQULxnp7kDKUAGZ1QQjA9-QjfxvpBHd1yebrKmWpBN9C7pGO9VvNiaKvceRHTxwgkOKLWIgiLJQlQbD0d42z_qiX8PWWfzh94XEC9EV0MyNz4WIeucEZ987Vl2Y8y0KS'
+  },
   {
-  id: 'cert-6',
-  title: 'Foundations of Git – Certification Course',
-  issuer: 'GitKraken',
-  year: '2025',
-  description: 'Successfully completed GitKraken\'s Foundations of Git certification, gaining strong hands-on knowledge of Git version control, including repositories, branching, merging, commits, and real-world collaboration workflows.',
-  image: 'https://blogger.googleusercontent.com/img/a/AVvXsEiPug72_GIaoY81oZ5zq8kUkEbwONtx973qLitBD9FFZdRWb8_bztKRMzxz5Xn1lDE1g8gagpIyZRg44tJmocNxib2ak1B30bevRJ8BxqRkDjH9lUsFfYWc331mabD0E7FSTxvh3RdLVaOqaSEprE9UCROeFyL-bv7aYHIZTjPaTcv7HPX2Mmc4gXvVxAGz'
-},
+    id: 'cert-6',
+    title: 'Foundations of Git – Certification Course',
+    issuer: 'GitKraken',
+    year: '2025',
+    description: 'Successfully completed GitKraken\'s Foundations of Git certification, gaining strong hands-on knowledge of Git version control, including repositories, branching, merging, commits, and real-world collaboration workflows.',
+    image: 'https://blogger.googleusercontent.com/img/a/AVvXsEiPug72_GIaoY81oZ5zq8kUkEbwONtx973qLitBD9FFZdRWb8_bztKRMzxz5Xn1lDE1g8gagpIyZRg44tJmocNxib2ak1B30bevRJ8BxqRkDjH9lUsFfYWc331mabD0E7FSTxvh3RdLVaOqaSEprE9UCROeFyL-bv7aYHIZTjPaTcv7HPX2Mmc4gXvVxAGz'
+  },
 ]
 
 const skills = [
-  { name: "Python", level: 60, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "JavaScript", level: 70, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "Python", level: 50, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "JavaScript", level: 80, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
 
   { name: "HTML", level: 90, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-  { name: "CSS", level: 85, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "CSS", level: 95, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
   { name: "JS", level: 80, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-  { name: "TypeScript", level: 60, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "TypeScript", level: 70, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
   { name: "React", level: 85, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Next JS", level: 65, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Next JS", level: 75, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Flutter", level: 65, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
 
-  { name: "Node JS", level: 50, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { name: "Express JS", level: 50, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "Node JS", level: 80, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express JS", level: 70, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "FastAPI", level: 65, category: "backend", icon: "https://cdn.worldvectorlogo.com/logos/fastapi.svg" },
+  { name: "Flask", level: 60, category: "backend", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmD38KsMgEwahtWc_Nfs5ZVktP9dBc36MUZA&s" },
 
-  { name: "SQL", level: 50, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-  { name: "MongoDB", level: 60, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  { name: "Supabase", level: 80, category: "database", icon: "https://seeklogo.com/images/S/supabase-logo-DCC676FFE2-seeklogo.com.png" },
 
-  { name: "Auto CAD", level: 70, category: "cad", icon: "https://img.icons8.com/color/452/autocad.png" },
-  { name: "Pro-E", level: 55, category: "cad", icon: "https://img.icons8.com/color/452/autodesk.png" },
-  { name: "Solid Works", level: 55, category: "cad", icon: "https://img.icons8.com/color/452/solidworks.png" },
+  { name: "MongoDB", level: 70, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "PostgreSQL", level: 60, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "Supabase", level: 80, category: "database", icon: "https://img.icons8.com/fluent/1200/supabase.jpg" },
 
   { name: "Miro", level: 80, category: "design", icon: "https://cdn.worldvectorlogo.com/logos/miro-2.svg" },
   { name: "Canva", level: 80, category: "design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
@@ -904,9 +999,12 @@ const skills = [
   { name: "Jenkins", level: 65, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
   { name: "Docker", level: 50, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
   { name: "Kubernetes", level: 55, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+  { name: "Nginx", level: 60, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
 
-  // ✅ New Cloud Skill
-  { name: "Amazon web services", level: 70, category: "cloud", icon: "https://www.apono.io/wp-content/uploads/2023/08/1_b_al7C5p26tbZG4sy-CWqw-3.png" },
+  { name: "AWS", level: 70, category: "cloud & hosting", icon: "https://www.apono.io/wp-content/uploads/2023/08/1_b_al7C5p26tbZG4sy-CWqw-3.png" },
+  { name: "Vercel", level: 85, category: "cloud & hosting", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqwNwDUq_S0U6wDzS60c45kVK5zpxF-03wsQ&s" },
+  { name: "Netlify", level: 80, category: "cloud & hosting", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNHK2zbKy-AZ2qL2psLsJewD8BJBrp_08tjw&s" },
+  { name: "Render", level: 75, category: "cloud & hosting", icon: "https://cdn.sanity.io/images/34ent8ly/production/ec37a3660704e1fa2b4246c9a01ab34e145194ad-824x824.png" },
 ];
 
 
@@ -948,47 +1046,47 @@ const projects = [
       "https://blogger.googleusercontent.com/img/a/AVvXsEiEFN58SIYnhmUikihfqiHk0YXN7WIhMLDG8YqT717374dasIArE5vTkxuDNnNa9kbNmUBDxVrg2QwAUTRd28NKw6TFLlBp1rUCpb13j6CxHZTdDYYQIEyXscHWzNhSYj6YChBqeQm3jcPxFr2USeubFDWmky9iOIRcdpZmURXnd_NWrdRb5LljU92tLRVq",
     link: "https://cartrabbit-alpha.vercel.app/",
     github: "https://github.com/Sabari-Vasan-SM/Bike-Buddy.git",
-    technologies: ["React", "Node.js","MongoDB Atlas","Express","Nodemailer"],
+    technologies: ["React", "Node.js", "MongoDB Atlas", "Express", "Nodemailer"],
     features: [
       "Customer booking flow (select service, date/time, pickup or drop-off option)",
-  "Service provider onboarding and profile management",
-  "Real-time booking status & progress tracking",
-  "Technician assignment and schedule management",
-  "In-app messaging between customer and provider",
-  "Push & email notifications (booking confirmations, reminders, status updates)",
+      "Service provider onboarding and profile management",
+      "Real-time booking status & progress tracking",
+      "Technician assignment and schedule management",
+      "In-app messaging between customer and provider",
+      "Push & email notifications (booking confirmations, reminders, status updates)",
     ],
     category: "Web",
   },
   {
-  "title": "Password Saver",
-  "description":
-    "A secure and user-friendly React Native application for storing and managing all your passwords with ease.",
-  "fullDescription":
-    "Password Saver is a mobile app built with React Native and Expo, designed to simplify password management while ensuring strong security. It provides secure authentication, PIN protection, and user-specific data isolation. Users can add, manage, and search their saved credentials, copy passwords to the clipboard with a single tap, and delete entries when no longer needed. With a modern UI/UX built using React Navigation, AsyncStorage, and Expo’s ecosystem, the app delivers a smooth, minimal, and reliable experience for both Android and iOS.",
-  "image":
-    "https://blogger.googleusercontent.com/img/a/AVvXsEiH79fRiTQuxfmc_wJKqPuP1sIVE8LqaxEzd1RU-_z724BilPItz0eU2EUCVUWmFwzLkACnT4lfPCYYypppIi3yCCQAUqbZqqjy7F_N_WIptzft6dm91zN9HjGrEC0MF6mEubHKzRkqiebd1Haavh08Z8Yli-7tqt0BSf3pTmsdRldNob7JKZ-7w9OdEBay",
-  "link": "https://github.com/Sabari-Vasan-SM/PasswordSaver",
-  "github": "https://github.com/Sabari-Vasan-SM/PasswordSaver.git",
-  "technologies": [
-    "React Native",
-    "Expo",
-    "React Navigation",
-    "AsyncStorage",
-    "expo-clipboard",
-    "@expo/vector-icons"
-  ],
-  "features": [
-    "Secure user authentication (sign-up & login)",
-    "PIN-based quick access with added security",
-    "User-specific data isolation (auto wipe on logout)",
-    "Add, view, search, and manage saved credentials",
-    "One-tap password copy to clipboard",
-    "Delete individual or all saved passwords",
-    "Modern minimal UI/UX with smooth navigation",
-    "Cross-platform support (Android & iOS)"
-  ],
-  "category": "Mobile App"
-},
+    "title": "Password Saver",
+    "description":
+      "A secure and user-friendly React Native application for storing and managing all your passwords with ease.",
+    "fullDescription":
+      "Password Saver is a mobile app built with React Native and Expo, designed to simplify password management while ensuring strong security. It provides secure authentication, PIN protection, and user-specific data isolation. Users can add, manage, and search their saved credentials, copy passwords to the clipboard with a single tap, and delete entries when no longer needed. With a modern UI/UX built using React Navigation, AsyncStorage, and Expo’s ecosystem, the app delivers a smooth, minimal, and reliable experience for both Android and iOS.",
+    "image":
+      "https://blogger.googleusercontent.com/img/a/AVvXsEiH79fRiTQuxfmc_wJKqPuP1sIVE8LqaxEzd1RU-_z724BilPItz0eU2EUCVUWmFwzLkACnT4lfPCYYypppIi3yCCQAUqbZqqjy7F_N_WIptzft6dm91zN9HjGrEC0MF6mEubHKzRkqiebd1Haavh08Z8Yli-7tqt0BSf3pTmsdRldNob7JKZ-7w9OdEBay",
+    "link": "https://github.com/Sabari-Vasan-SM/PasswordSaver",
+    "github": "https://github.com/Sabari-Vasan-SM/PasswordSaver.git",
+    "technologies": [
+      "React Native",
+      "Expo",
+      "React Navigation",
+      "AsyncStorage",
+      "expo-clipboard",
+      "@expo/vector-icons"
+    ],
+    "features": [
+      "Secure user authentication (sign-up & login)",
+      "PIN-based quick access with added security",
+      "User-specific data isolation (auto wipe on logout)",
+      "Add, view, search, and manage saved credentials",
+      "One-tap password copy to clipboard",
+      "Delete individual or all saved passwords",
+      "Modern minimal UI/UX with smooth navigation",
+      "Cross-platform support (Android & iOS)"
+    ],
+    "category": "Mobile App"
+  },
 
   {
     title: "Air-Quality-Monitor-With-NODE-MCU",
@@ -1020,7 +1118,7 @@ const projects = [
       "https://blogger.googleusercontent.com/img/a/AVvXsEhKRda2HFZa7Yrx4eh5zykeFT8lItcpot7XfApvo5VHgdHjKtUULEI3FqvHx8nIAHYfKDC_z5Z2jDbLjGsTIdjOXnqlYmffrj7_BcXRE2BarBQ0CpvDD0jDjVwaU-rxfZFuJA17Rr8DZtKzWs1EJLksHJX70-i2pJfseRS3B8wKF-y41PHf84bZcRzjmA33",
     link: "https://billventory.vasan.tech/",
     github: "https://github.com/Sabari-Vasan-SM/Billventory.git",
-    technologies: ["React", "Node.js", "SupaBase","PDF Generation"],
+    technologies: ["React", "Node.js", "SupaBase", "PDF Generation"],
     features: [
       "Real-time inventory tracking",
       "Automated billing and invoicing",
@@ -1062,47 +1160,47 @@ const projects = [
       "https://blogger.googleusercontent.com/img/a/AVvXsEjeS-5K7mj-AKhlX3nqXZXUdvbgZOz9mESOPz2sGrD2-gIOQSdegdHHHqpyIdZQvJKyH1pIFStddUKFs2bTdp5vVAXl90T_hpkPMq_OLwR07Y-ML-zHqSTWi9I-8_V6_7dlicXodvSXEfbSvgbZQMYKWxSMXUcpL9QadTCE6dAy_JjCPghkOrweLHdVY8uv",
     link: "https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-",
     github: "https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-.git",
-    technologies: ["HTML","CSS","JavaScript","MongoDB"],
+    technologies: ["HTML", "CSS", "JavaScript", "MongoDB"],
     features: [
       "User profiles and social networking",
       "Event creation and management",
       "Real-time messaging",
-     
+
       "Sports activity tracking",
-      
+
     ],
     category: "Web Development",
   },
   {
-  title: "Gear Fault Detection System",
-  description:
-    "An intelligent computer vision system for detecting and localizing gear defects using YOLOv8 Oriented Object Detection (OBB).",
-  fullDescription:
-    "A deep learning–based gear fault detection system that uses YOLOv8 with oriented bounding boxes to accurately identify, localize, and visualize multiple types of gear defects. The system supports rotated defect detection, real-time inference, overlay visualization, and performance analysis using metrics such as precision, recall, F1-score, and mAP.",
-  image:
-    "https://blogger.googleusercontent.com/img/a/AVvXsEgKmFwmaA9c6OsRvYIp8Bo6wdK9XYMeNaCT4q1fmbvBHwVSocYXkayYi7bfnVzUG_XjUaZE0yuFsURNP7DIsQXydBSV3qdCCBe6u333xWg-V6JS8BnRoqCmljnKu9EMrXQjCSpzaX2GdGpN1AqvrViGa52MooQRf30oi5Eg0vYoVKK2BrLQmWIdsajbsFp0",
-  link:
-    "https://github.com/Final-Year-Projects-KEC/Final-Code-With-Accuray-And-Graph-Metrics",
-  github:
-    "https://github.com/Final-Year-Projects-KEC/Final-Code-With-Accuray-And-Graph-Metrics",
-  technologies: [
-    "Python",
-    "YOLOv8",
-    "Ultralytics",
-    "OpenCV",
-    "Deep Learning",
-    "Computer Vision"
-  ],
-  features: [
-    "Oriented object detection using YOLOv8-OBB",
-    "Detection of multiple gear defect types (hp_cd, hp_cm, kp)",
-    "Rotated bounding box and polygon-based visualization",
-    "Real-time defect prediction on test images",
-    "Training and validation with precision, recall, F1-score, and mAP analysis",
-    "Automated overlay generation for defect localization"
-  ],
-  category: "Computer Vision / Deep Learning"
-},
+    title: "Gear Fault Detection System",
+    description:
+      "An intelligent computer vision system for detecting and localizing gear defects using YOLOv8 Oriented Object Detection (OBB).",
+    fullDescription:
+      "A deep learning–based gear fault detection system that uses YOLOv8 with oriented bounding boxes to accurately identify, localize, and visualize multiple types of gear defects. The system supports rotated defect detection, real-time inference, overlay visualization, and performance analysis using metrics such as precision, recall, F1-score, and mAP.",
+    image:
+      "https://blogger.googleusercontent.com/img/a/AVvXsEgKmFwmaA9c6OsRvYIp8Bo6wdK9XYMeNaCT4q1fmbvBHwVSocYXkayYi7bfnVzUG_XjUaZE0yuFsURNP7DIsQXydBSV3qdCCBe6u333xWg-V6JS8BnRoqCmljnKu9EMrXQjCSpzaX2GdGpN1AqvrViGa52MooQRf30oi5Eg0vYoVKK2BrLQmWIdsajbsFp0",
+    link:
+      "https://github.com/Final-Year-Projects-KEC/Final-Code-With-Accuray-And-Graph-Metrics",
+    github:
+      "https://github.com/Final-Year-Projects-KEC/Final-Code-With-Accuray-And-Graph-Metrics",
+    technologies: [
+      "Python",
+      "YOLOv8",
+      "Ultralytics",
+      "OpenCV",
+      "Deep Learning",
+      "Computer Vision"
+    ],
+    features: [
+      "Oriented object detection using YOLOv8-OBB",
+      "Detection of multiple gear defect types (hp_cd, hp_cm, kp)",
+      "Rotated bounding box and polygon-based visualization",
+      "Real-time defect prediction on test images",
+      "Training and validation with precision, recall, F1-score, and mAP analysis",
+      "Automated overlay generation for defect localization"
+    ],
+    category: "Computer Vision / Deep Learning"
+  },
   {
     title: "Admission Management System",
     description: "A comprehensive system for managing student admissions, applications, and enrollment processes.",
@@ -1112,7 +1210,7 @@ const projects = [
       "https://blogger.googleusercontent.com/img/a/AVvXsEjtwp3qDUzFmk7FxCk22es1XudU5gXTfo83pE-roIOFeOAkaNpPwGxXcK8bj3CCDuxu_VUJAXV61SPxIeqD2wnHgWNapuVDT1Oktqv8hYZYO6--zgmpOG1i_W2SD7rPVAFh5DEgVeJOzVrL1i3hDPznz-S-C0d9x-015t73uoHN3_jPXAQMhDgCzfClEYc6",
     link: "https://admissionmanagement.netlify.app/",
     github: "https://github.com/Sabari-Vasan-SM/Admisssion-management.git",
-    technologies: ["React", "Node.js",  "Express", "Payment Gateway", "PDF Generation"],
+    technologies: ["React", "Node.js", "Express", "Payment Gateway", "PDF Generation"],
     features: [
       "Online application forms",
       "Document upload and verification",
