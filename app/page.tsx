@@ -64,6 +64,7 @@ export default function Home() {
   const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [resumeModalOpen, setResumeModalOpen] = useState(false)
+  const [contactFormOpen, setContactFormOpen] = useState(false)
   const projectsRef = useRef<HTMLDivElement>(null)
   const { theme } = useTheme()
 
@@ -71,6 +72,30 @@ export default function Home() {
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // Handle contact form submission
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formElement = e.currentTarget as HTMLFormElement
+    const formData = new FormData(formElement)
+
+    try {
+      const response = await fetch("https://formspree.io/f/xjkrokoj", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+
+      if (response.ok) {
+        setContactFormOpen(true)
+        formElement.reset()
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+    }
+  }
 
   // Smooth scroll function
   const scrollToSection = (sectionId: string) => {
@@ -558,7 +583,7 @@ export default function Home() {
                         <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 dark:text-white text-gray-900">
                           Send a Message
                         </h3>
-                        <form action="https://formspree.io/f/xjkrokoj" method="POST" className="space-y-3 md:space-y-4">
+                        <form onSubmit={handleContactSubmit} className="space-y-3 md:space-y-4">
                           <div>
                             <label
                               htmlFor="name"
@@ -631,6 +656,62 @@ export default function Home() {
         </section>
       </main>
       <ResumeModal isOpen={resumeModalOpen} onClose={() => setResumeModalOpen(false)} />
+
+      {/* Contact Form Success Modal */}
+      <AnimatePresence>
+        {contactFormOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setContactFormOpen(false)}
+          >
+            <motion.div
+              className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 max-w-md w-full"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.div
+                className="text-center"
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                <motion.div
+                  className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center"
+                  animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </motion.div>
+
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  Message Sent Successfully!
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  Thank you for reaching out. Kindly wait for my response. I'll get back to you as soon as possible.
+                </p>
+
+                <motion.button
+                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg transition-all"
+                  onClick={() => setContactFormOpen(false)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Close
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
@@ -816,10 +897,9 @@ const skillCategories = [
   { value: "frontend", label: "Front End" },
   { value: "backend", label: "Back End" },
   { value: "database", label: "Database" },
-  { value: "cad", label: "CAD/CAM Tools" },
   { value: "design", label: "Design Tools" },
   { value: "devops", label: "DevOps" },
-  { value: "cloud", label: "Cloud" },
+  { value: "cloud & hosting", label: "Cloud & Hosting" },
 ];
 
 const certificationsData = [
@@ -883,26 +963,26 @@ const certificationsData = [
 ]
 
 const skills = [
-  { name: "Python", level: 60, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "JavaScript", level: 70, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "Python", level: 50, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "JavaScript", level: 80, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
 
   { name: "HTML", level: 90, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-  { name: "CSS", level: 85, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "CSS", level: 95, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
   { name: "JS", level: 80, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-  { name: "TypeScript", level: 60, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "TypeScript", level: 70, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
   { name: "React", level: 85, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Next JS", level: 65, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Next JS", level: 75, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Flutter", level: 65, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
 
-  { name: "Node JS", level: 50, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { name: "Express JS", level: 50, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "Node JS", level: 80, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express JS", level: 70, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "FastAPI", level: 65, category: "backend", icon: "https://cdn.worldvectorlogo.com/logos/fastapi.svg" },
+  { name: "Flask", level: 60, category: "backend", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmD38KsMgEwahtWc_Nfs5ZVktP9dBc36MUZA&s" },
 
-  { name: "SQL", level: 50, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-  { name: "MongoDB", level: 60, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  { name: "Supabase", level: 80, category: "database", icon: "https://seeklogo.com/images/S/supabase-logo-DCC676FFE2-seeklogo.com.png" },
 
-  { name: "Auto CAD", level: 70, category: "cad", icon: "https://img.icons8.com/color/452/autocad.png" },
-  { name: "Pro-E", level: 55, category: "cad", icon: "https://img.icons8.com/color/452/autodesk.png" },
-  { name: "Solid Works", level: 55, category: "cad", icon: "https://img.icons8.com/color/452/solidworks.png" },
+  { name: "MongoDB", level: 70, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "PostgreSQL", level: 60, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "Supabase", level: 80, category: "database", icon: "https://img.icons8.com/fluent/1200/supabase.jpg" },
 
   { name: "Miro", level: 80, category: "design", icon: "https://cdn.worldvectorlogo.com/logos/miro-2.svg" },
   { name: "Canva", level: 80, category: "design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
@@ -910,9 +990,12 @@ const skills = [
   { name: "Jenkins", level: 65, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
   { name: "Docker", level: 50, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
   { name: "Kubernetes", level: 55, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+  { name: "Nginx", level: 60, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
 
-  // ✅ New Cloud Skill
-  { name: "Amazon web services", level: 70, category: "cloud", icon: "https://www.apono.io/wp-content/uploads/2023/08/1_b_al7C5p26tbZG4sy-CWqw-3.png" },
+  { name: "AWS", level: 70, category: "cloud & hosting", icon: "https://www.apono.io/wp-content/uploads/2023/08/1_b_al7C5p26tbZG4sy-CWqw-3.png" },
+  { name: "Vercel", level: 85, category: "cloud & hosting", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqwNwDUq_S0U6wDzS60c45kVK5zpxF-03wsQ&s" },
+  { name: "Netlify", level: 80, category: "cloud & hosting", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNHK2zbKy-AZ2qL2psLsJewD8BJBrp_08tjw&s" },
+  { name: "Render", level: 75, category: "cloud & hosting", icon: "https://cdn.sanity.io/images/34ent8ly/production/ec37a3660704e1fa2b4246c9a01ab34e145194ad-824x824.png" },
 ];
 
 
