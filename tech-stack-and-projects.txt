@@ -1,0 +1,310 @@
+================================================================================
+                    SABARIVASAN S M - TECH STACK & PROJECTS
+================================================================================
+
+================================================================================
+TECH STACK / SKILLS
+================================================================================
+
+PROGRAMMING LANGUAGES:
+- Python
+- JavaScript
+
+FRONTEND TECHNOLOGIES:
+- HTML
+- CSS
+- JavaScript
+- TypeScript
+- React
+- Next.js
+- Flutter
+
+BACKEND TECHNOLOGIES:
+- Node.js
+- Express.js
+- FastAPI
+- Flask
+
+DATABASES:
+- MongoDB
+- PostgreSQL
+- Supabase
+
+DESIGN TOOLS:
+- Miro
+- Canva
+
+DEVOPS & TOOLS:
+- Jenkins
+- Docker
+- Kubernetes
+- Nginx
+
+CLOUD & HOSTING PLATFORMS:
+- AWS
+- Vercel
+- Netlify
+- Render
+
+IoT & HARDWARE:
+- ESP32
+- MQ-6 (Gas Sensor)
+- MQ-135 (Air Quality Sensor)
+- DHT11 (Temperature & Humidity Sensor)
+
+MACHINE LEARNING & COMPUTER VISION:
+- YOLOv8
+- Ultralytics
+- OpenCV
+- Deep Learning
+
+OTHER TECHNOLOGIES:
+- Twilio (SMS Alerts)
+- ThingSpeak (Cloud IoT)
+- JWT (Authentication)
+- Video.js
+- PDF Generation
+- Payment Gateway Integration
+- expo-clipboard
+- React Navigation
+- AsyncStorage
+
+
+================================================================================
+PROJECTS COMPLETED
+================================================================================
+
+================================================================================
+PROJECT 1: BIKE BUDDY
+================================================================================
+Description:
+A comprehensive bike service management platform that connects customers with 
+service providers, enabling easy booking, tracking, and management of bike 
+services.
+
+Technologies Used:
+- React
+- Node.js
+- MongoDB Atlas
+- Express
+- Nodemailer
+
+Key Features:
+- Customer booking flow (select service, date/time, pickup or drop-off option)
+- Service provider onboarding and profile management
+- Real-time booking status & progress tracking
+- Technician assignment and schedule management
+- In-app messaging between customer and provider
+- Push & email notifications (booking confirmations, reminders, status updates)
+
+Live Link: https://cartrabbit-alpha.vercel.app/
+GitHub Repository: https://github.com/Sabari-Vasan-SM/Bike-Buddy.git
+Category: Web
+
+================================================================================
+PROJECT 2: PASSWORD SAVER
+================================================================================
+Description:
+A secure and user-friendly React Native application for storing and managing 
+all your passwords with ease. Built with React Native and Expo, designed to 
+simplify password management while ensuring strong security.
+
+Technologies Used:
+- React Native
+- Expo
+- React Navigation
+- AsyncStorage
+- expo-clipboard
+- @expo/vector-icons
+
+Key Features:
+- Secure user authentication (sign-up & login)
+- PIN-based quick access with added security
+- User-specific data isolation (auto wipe on logout)
+- Add, view, search, and manage saved credentials
+- One-tap password copy to clipboard
+- Delete individual or all saved passwords
+- Modern minimal UI/UX with smooth navigation
+- Cross-platform support (Android & iOS)
+
+Live Link: https://github.com/Sabari-Vasan-SM/PasswordSaver
+GitHub Repository: https://github.com/Sabari-Vasan-SM/PasswordSaver.git
+Category: Mobile App
+
+================================================================================
+PROJECT 3: AIR QUALITY MONITOR WITH NODE MCU
+================================================================================
+Description:
+An IoT-based air quality monitoring system using ESP32 and real-time dashboards 
+built with React and TailwindCSS. Leverages multiple sensors (MQ-6, MQ-135, 
+DHT11) to detect gas concentrations, temperature, and humidity.
+
+Technologies Used:
+- ESP32
+- MQ-6
+- MQ-135
+- DHT11
+- React
+- TailwindCSS
+- Twilio
+- ThingSpeak
+
+Key Features:
+- Real-time sensor data updates
+- Gas, temperature, and humidity monitoring
+- Dynamic React + TailwindCSS dashboard
+- Twilio SMS alert system
+- ThingSpeak cloud data logging
+- Responsive UI for desktop and mobile
+
+Live Link: https://airqualitymonitor1.netlify.app/
+GitHub Repository: https://github.com/Sabari-Vasan-SM/Air-Quality-Monitor-With-NODE-MCU.git
+Category: IoT & Web
+
+================================================================================
+PROJECT 4: BILLVENTORY
+================================================================================
+Description:
+An all-in-one digital solution that streamlines the retail experience by 
+integrating inventory control, billing, and sales management into a single 
+platform.
+
+Technologies Used:
+- React
+- Node.js
+- SupaBase
+- PDF Generation
+
+Key Features:
+- Real-time inventory tracking
+- Automated billing and invoicing
+- Sales analytics and reporting
+- Multi-location support
+- Barcode scanning integration
+- Customer and supplier management
+
+Live Link: https://billventory.vasan.tech/
+GitHub Repository: https://github.com/Sabari-Vasan-SM/Billventory.git
+Category: Web Development
+
+================================================================================
+PROJECT 5: E-LEARNING PLATFORM
+================================================================================
+Description:
+A comprehensive online learning platform with course management, video streaming, 
+and progress tracking. Features include user authentication, course creation and 
+management, video streaming, progress tracking, quizzes, and certificates.
+
+Technologies Used:
+- React
+- Node.js
+- MongoDB
+- Express
+- JWT
+- Video.js
+
+Key Features:
+- User authentication and authorization
+- Course creation and management
+- Video streaming and playback
+- Progress tracking and analytics
+- Quiz and assessment system
+- Certificate generation
+
+Live Link: https://github.com/Sabari-Vasan-SM/E-learning-Platform
+GitHub Repository: https://github.com/Sabari-Vasan-SM/E-learning-Platform.git
+Category: Web Development
+
+================================================================================
+PROJECT 6: SPORT-CONNECT
+================================================================================
+Description:
+A social platform connecting sports enthusiasts, organizing events, and building 
+communities around sports. Users can create profiles, join sports communities, 
+organize events, find playing partners, and track their sports activities.
+
+Technologies Used:
+- HTML
+- CSS
+- JavaScript
+- MongoDB
+
+Key Features:
+- User profiles and social networking
+- Event creation and management
+- Real-time messaging
+- Sports activity tracking
+
+Live Link: https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-
+GitHub Repository: https://github.com/Sabari-Vasan-SM/Sport-Connect-SIH-.git
+Category: Web Development
+
+================================================================================
+PROJECT 7: GEAR FAULT DETECTION SYSTEM
+================================================================================
+Description:
+An intelligent computer vision system for detecting and localizing gear defects 
+using YOLOv8 Oriented Object Detection (OBB). A deep learning-based gear fault 
+detection system that uses YOLOv8 with oriented bounding boxes to accurately 
+identify, localize, and visualize multiple types of gear defects.
+
+Technologies Used:
+- Python
+- YOLOv8
+- Ultralytics
+- OpenCV
+- Deep Learning
+- Computer Vision
+
+Key Features:
+- Oriented object detection using YOLOv8-OBB
+- Detection of multiple gear defect types (hp_cd, hp_cm, kp)
+- Rotated bounding box and polygon-based visualization
+- Real-time defect prediction on test images
+- Training and validation with precision, recall, F1-score, and mAP analysis
+- Automated overlay generation for defect localization
+
+Live Link: https://github.com/Final-Year-Projects-KEC/Final-Code-With-Accuray-And-Graph-Metrics
+GitHub Repository: https://github.com/Final-Year-Projects-KEC/Final-Code-With-Accuray-And-Graph-Metrics
+Category: Computer Vision / Deep Learning
+
+================================================================================
+PROJECT 8: ADMISSION MANAGEMENT SYSTEM
+================================================================================
+Description:
+A comprehensive system for managing student admissions, applications, and 
+enrollment processes. The system handles the entire admission lifecycle from 
+application submission to enrollment.
+
+Technologies Used:
+- React
+- Node.js
+- Express
+- Payment Gateway
+- PDF Generation
+
+Key Features:
+- Online application forms
+- Document upload and verification
+- Payment processing integration
+- Application status tracking
+- Administrative dashboards
+- Automated notifications and emails
+
+Live Link: https://admissionmanagement.netlify.app/
+GitHub Repository: https://github.com/Sabari-Vasan-SM/Admisssion-management.git
+Category: Web Development
+
+================================================================================
+
+Total Projects: 8
+Categories: Web Development, Mobile App, IoT & Web, Computer Vision/Deep Learning
+
+Contact Information:
+LinkedIn: https://www.linkedin.com/in/sabarivasan-s-m-b10229255/
+GitHub: https://github.com/Sabari-Vasan-SM
+Phone: +919677465071
+
+================================================================================
+                              END OF DOCUMENT
+================================================================================
