@@ -10,7 +10,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AnimatedSection } from "@/components/animated-section"
 import { AnimatedButton } from "@/components/animated-button"
 import { CursorFollower } from "@/components/cursor-follower"
-import { SkillCard } from "@/components/skill-card"
 import { EducationTimeline } from "@/components/education-timeline"
 import { TypingAnimation } from "@/components/typing-animation"
 import { useTheme } from "next-themes"
@@ -24,6 +23,7 @@ import { AchievementsCarousel } from "@/components/achievements-carousel"
 import { ResumeModal } from "@/components/resume-modal"
 import CertificationsCarousel from "@/components/certifications-carousel"
 import { StatusBox } from "@/components/status-box"
+import { TechnicalExpertise } from "@/components/technical-expertise"
 
 const socialLinks = [
   {
@@ -306,43 +306,7 @@ export default function Home() {
               </p>
             </AnimatedSection>
 
-            <Tabs defaultValue="languages" className="w-full">
-              <div className="flex justify-center mb-8">
-                <div className="w-full max-w-4xl overflow-x-auto">
-                  <TabsList className="bg-white dark:bg-gray-900 border border-purple-100 dark:border-purple-800 p-1 rounded-full flex w-max min-w-full md:min-w-0 mx-auto">
-                    {skillCategories.map((category) => (
-                      <TabsTrigger
-                        key={category.value}
-                        value={category.value}
-                        className="rounded-full data-[state=active]:bg-purple-500 data-[state=active]:text-white dark:text-gray-300 dark:data-[state=active]:text-white whitespace-nowrap px-3 py-2 text-xs sm:text-sm flex-shrink-0"
-                      >
-                        {category.label}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                </div>
-              </div>
-
-              <AnimatePresence mode="wait">
-                {skillCategories.map((category) => (
-                  <TabsContent key={category.value} value={category.value} className="mt-0">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
-                      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-                    >
-                      {skills
-                        .filter((skill) => skill.category === category.value)
-                        .map((skill, index) => (
-                          <SkillCard key={index} skill={skill} index={index} />
-                        ))}
-                    </motion.div>
-                  </TabsContent>
-                ))}
-              </AnimatePresence>
-            </Tabs>
+            <TechnicalExpertise />
           </div>
         </section>
 
@@ -901,15 +865,6 @@ const interests = [
 
 ]
 
-const skillCategories = [
-  { value: "languages", label: "Languages" },
-  { value: "frontend", label: "Front End" },
-  { value: "backend", label: "Back End" },
-  { value: "database", label: "Database" },
-  { value: "design", label: "Design Tools" },
-  { value: "devops", label: "DevOps" },
-  { value: "cloud & hosting", label: "Cloud & Hosting" },
-];
 
 const certificationsData = [
   {
@@ -971,41 +926,7 @@ const certificationsData = [
   },
 ]
 
-const skills = [
-  { name: "Python", level: 50, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "JavaScript", level: 80, category: "languages", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
 
-  { name: "HTML", level: 90, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-  { name: "CSS", level: 95, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-  { name: "JS", level: 80, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-  { name: "TypeScript", level: 70, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-  { name: "React", level: 85, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Next JS", level: 75, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-  { name: "Flutter", level: 65, category: "frontend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-
-  { name: "Node JS", level: 80, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { name: "Express JS", level: 70, category: "backend", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-  { name: "FastAPI", level: 65, category: "backend", icon: "https://cdn.worldvectorlogo.com/logos/fastapi.svg" },
-  { name: "Flask", level: 60, category: "backend", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmD38KsMgEwahtWc_Nfs5ZVktP9dBc36MUZA&s" },
-
-
-  { name: "MongoDB", level: 70, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  { name: "PostgreSQL", level: 60, category: "database", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-  { name: "Supabase", level: 80, category: "database", icon: "https://img.icons8.com/fluent/1200/supabase.jpg" },
-
-  { name: "Miro", level: 80, category: "design", icon: "https://cdn.worldvectorlogo.com/logos/miro-2.svg" },
-  { name: "Canva", level: 80, category: "design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
-
-  { name: "Jenkins", level: 65, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
-  { name: "Docker", level: 50, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-  { name: "Kubernetes", level: 55, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
-  { name: "Nginx", level: 60, category: "devops", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
-
-  { name: "AWS", level: 70, category: "cloud & hosting", icon: "https://www.apono.io/wp-content/uploads/2023/08/1_b_al7C5p26tbZG4sy-CWqw-3.png" },
-  { name: "Vercel", level: 85, category: "cloud & hosting", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqwNwDUq_S0U6wDzS60c45kVK5zpxF-03wsQ&s" },
-  { name: "Netlify", level: 80, category: "cloud & hosting", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNHK2zbKy-AZ2qL2psLsJewD8BJBrp_08tjw&s" },
-  { name: "Render", level: 75, category: "cloud & hosting", icon: "https://cdn.sanity.io/images/34ent8ly/production/ec37a3660704e1fa2b4246c9a01ab34e145194ad-824x824.png" },
-];
 
 
 const education = [
