@@ -248,7 +248,7 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 z-50">
-      
+
       {/* 🔮 Floating Orbs */}
       <div className="orb orb-purple"></div>
       <div className="orb orb-pink"></div>

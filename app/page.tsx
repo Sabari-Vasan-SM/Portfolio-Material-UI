@@ -15,6 +15,7 @@ import { TypingAnimation } from "@/components/typing-animation"
 import { useTheme } from "next-themes"
 import { AnimatedHeading } from "@/components/animated-heading"
 import { InterestCard } from "@/components/interest-card"
+import { StatsCards } from "@/components/stats-cards"
 import { WorkExperienceTimeline } from "@/components/work-experience-timeline"
 import { AnimatedSubtitle } from "@/components/animated-subtitle"
 import { EnhancedNavbar } from "@/components/enhanced-navbar"
@@ -291,8 +292,10 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
+        {/* Animated Stats Cards above My Skills */}
         <section id="skills" className="py-12 sm:py-16 md:py-20 bg-[#f8f9fa] dark:bg-gray-800 transition-colors duration-300 w-full overflow-x-hidden">
           <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+            <StatsCards />
             <AnimatedSection animation="slide-up" className="text-center mb-12">
               <div className="inline-flex items-center rounded-full border border-purple-200 dark:border-purple-800 bg-white dark:bg-gray-900 px-3 py-1 text-sm mx-auto">
                 <span className="mr-1 rounded-full bg-purple-500 size-2"></span>
