@@ -46,6 +46,7 @@ function useCountUp(target: number, duration: number = 1.2) {
 
 function StatCard({ label, value, suffix = "+", duration = 1.2, delay = 0 }: StatCardProps) {
     const { count, ref } = useCountUp(value, duration)
+    const formattedCount = count.toLocaleString()
 
     return (
         <motion.div
@@ -60,7 +61,7 @@ function StatCard({ label, value, suffix = "+", duration = 1.2, delay = 0 }: Sta
                     <div ref={ref} className="flex items-center gap-5 md:gap-6 min-h-[120px]">
                         <div className="shrink-0 rounded-2xl bg-purple-50 dark:bg-purple-900/20 px-5 py-4 md:px-6 md:py-5 border border-purple-100 dark:border-purple-800">
                             <span className="text-4xl md:text-5xl font-bold tracking-tight text-purple-700 dark:text-purple-300">
-                                {count}
+                                {formattedCount}
                                 {suffix}
                             </span>
                         </div>
@@ -81,10 +82,12 @@ export function StatsCards() {
         { label: "Months Experience", value: 4, suffix: "+", duration: 1.1 },
         { label: "Technologies Used", value: 12, suffix: "+", duration: 1.25 },
         { label: "Projects Completed", value: 20, suffix: "+", duration: 1.4 },
+        { label: "Repos in GitHub", value: 75, suffix: "+", duration: 1.55 },
+        { label: "Lines of Code Changed", value: 20571648, suffix: "+", duration: 1.9 },
     ]
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-6 mt-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5 md:gap-6 mt-10 mb-12">
             {stats.map((stat, index) => (
                 <StatCard
                     key={stat.label}
