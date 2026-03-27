@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import ClientLayout from "./ClientLayout"
 import { LoadingScreen } from "@/components/loading-screen"
+import { ChatBot } from "@/components/chatbot"
 import { useState } from "react"
 
 export default function RootClientLayout({
@@ -24,6 +25,7 @@ export default function RootClientLayout({
       {!isLoadingComplete && <LoadingScreen onComplete={() => setIsLoadingComplete(true)} />}
       {isLoadingComplete && <ClientLayout>{children}</ClientLayout>}
       <Toaster />
+      <ChatBot />
     </ThemeProvider>
   )
 }
