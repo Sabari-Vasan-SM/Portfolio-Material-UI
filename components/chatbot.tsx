@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Send, MessageCircle, Bot } from "lucide-react"
+import { X, Send, Bot } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
@@ -167,7 +167,7 @@ export function ChatBot() {
                         transition={{ duration: 0.3 }}
                         className="mb-3 sm:mb-4"
                     >
-                        <Card className="w-full sm:w-[360px] md:w-[380px] h-[72vh] max-h-[560px] sm:h-[540px] flex flex-col shadow-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden">
+                        <Card className="w-full sm:w-[360px] md:w-[380px] h-[72vh] max-h-[560px] sm:h-[540px] flex flex-col shadow-xl border border-white/20 bg-white/40 dark:bg-slate-900/60 backdrop-blur-lg rounded-2xl overflow-hidden">
                             <div className="border-b border-slate-200 dark:border-slate-700 px-4 py-3 flex items-center justify-between bg-white dark:bg-slate-900">
                                 <div className="flex items-center gap-2.5">
                                     <div className="h-8 w-8 rounded-full bg-blue-200 text-blue-900 flex items-center justify-center">
@@ -299,7 +299,7 @@ export function ChatBot() {
                 {isOpen ? (
                     <X className="w-6 h-6" />
                 ) : (
-                    <MessageCircle className="w-6 h-6" />
+                    <Bot className="w-6 h-6" />
                 )}
             </motion.button>
         </div>
