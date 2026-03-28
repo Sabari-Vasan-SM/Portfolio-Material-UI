@@ -191,9 +191,8 @@ export function ChatBot() {
                                         key={message.id}
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className={`flex ${
-                                            message.sender === "user" ? "justify-end" : "justify-start"
-                                        }`}
+                                        className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"
+                                            }`}
                                     >
                                         {message.sender === "bot" ? (
                                             <div className="flex items-start gap-2 max-w-[94%]">
