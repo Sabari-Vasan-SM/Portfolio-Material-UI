@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     canonical: "https://portfolio.vasan.tech",
   },
   verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
+    google: "google0a4e8bd7e8c5a60b", // Google Search Console verification code
   },
 }
 
